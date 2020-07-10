@@ -2,16 +2,17 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { home } from "./components/screens/home.js"
-import { you } from "./components/screens/you.js"
-import { attendees } from "./components/screens/attendees.js"
-import { guestlist } from "./components/screens/guestlist.js"
-import { location } from "./components/screens/location.js"
-import { duration } from "./components/screens/duration.js"
-import { food } from "./components/screens/food.js"
-import { ppe } from "./components/screens/ppe.js"
-import { distancing } from "./components/screens/distancing.js"
-import { summary } from "./components/screens/summary.js"
+import { home } from "./components/screens/home"
+import { you } from "./components/screens/you"
+import { attendees } from "./components/screens/attendees"
+import { guestlist } from "./components/screens/guestlist"
+import { location } from "./components/screens/location"
+import { duration } from "./components/screens/duration"
+import { food } from "./components/screens/food"
+import { ppe } from "./components/screens/ppe"
+import { distancing } from "./components/screens/distancing"
+import { summary } from "./components/screens/summary"
+import { previewinvite } from "./components/screens/previewinvite";
 
 function App() {
   return (
