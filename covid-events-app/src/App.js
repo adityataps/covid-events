@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import Notifications from './components/Notifications'
+import ProgressBar from './components/ProgressBar'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         </a>
       </header>
       <Notifications id="notificationComponent" right="100" />
+      <ProgressBar id="progressBar" />
     </div>
   );
 }
