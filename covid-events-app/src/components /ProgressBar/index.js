@@ -2,15 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
-    background-color: #444;
+    background-color: #111;
     color: white;
     padding: 16px;
-    position: absolute;
-    top: 16px;
-    right: ${props => props.right}px;
     z-index: 999;
     transition: top 0.5s ease;
 `;
+
+const progress = document.querySelector('.progress-done');
+
 
 export default class ProgressBar extends React.Component {
 
@@ -21,9 +21,9 @@ export default class ProgressBar extends React.Component {
         };
     }
 
-    // onShow = () => {
+    onShow = () => {
 
-    // }
+    }
 
     // showNotification = () => {
     //     this.setState({
@@ -37,12 +37,16 @@ export default class ProgressBar extends React.Component {
     //     })
     // }
 
+    showProgress = () => {
+        progress.style.width = progress.getAttribute('data-done') + '%';
+        progress.style.opacity = 1;
+    }
+
     render(){
         return(
-            // <React.Fragment>
-            //     <button onClick={this.showNotification}>Click me</button>
-            //     <Container id={this.props.id} top={this.state.top}>Example text</Container>
-            // </React.Fragment>
+            <React.Fragment>
+                 <Container id={this.props.id} >This is your progress bar!</Container>
+             </React.Fragment>
         );
     }
 }
