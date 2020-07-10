@@ -8,6 +8,7 @@ const Container = styled.div`
     position: absolute;
     top: 16px;
     right: ${props => props.right}px;
+    height: 100vh
     z-index: 999;
     transition: top 0.5s ease;
 `;
@@ -40,7 +41,7 @@ export default class Notification extends React.Component {
         return(
             <React.Fragment>
                 <button onClick={this.showNotification}>Click me</button>
-                <Container id={this.props.id} top={this.state.top}>Example text</Container>
+                <Container id={this.props.id} right={this.state.right}>Example text</Container>
             </React.Fragment>
         );
     }

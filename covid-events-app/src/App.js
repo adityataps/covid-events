@@ -21,7 +21,7 @@ function App() {
           Learn React
         </a>
       </header>
-      <Notifications id="notificationComponent" />
+      <Notifications id="notificationComponent" right="100" />
     </div>
   );
 }
