@@ -11,6 +11,7 @@ import { duration } from "./components/screens/duration.js"
 import { food } from "./components/screens/food.js"
 import { ppe } from "./components/screens/ppe.js"
 import { distancing } from "./components/screens/distancing.js"
+import { summary } from "./components/screens/summary.js"
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
             <Route path={"/food"} exact component={food} />
             <Route path={"/ppe"} exact component={ppe} />
             <Route path={"/distancing"} exact component={distancing} />
+            <Route path={"/summary"} exact component={summary} />
             <Route path={"/"} render={() => <div>404</div>} />
         </Switch>
     </BrowserRouter>
