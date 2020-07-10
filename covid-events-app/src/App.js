@@ -23,7 +23,7 @@ function App() {
         </a>
       </header>
       <Notifications id="notificationComponent" right="100" />
-      <ProgressBar id="progressBar" />
+      <ProgressBar id="progressBarComponent" />
     </div>
   );
 }
