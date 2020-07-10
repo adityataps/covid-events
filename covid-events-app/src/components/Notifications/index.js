@@ -2,22 +2,24 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
-    background-color: #444;
+    background-color: #bd4040;
     color: white;
     padding: 16px;
     position: absolute;
-    top: 16px;
-    right: ${props => props.right}px;
-    height: 100vh
+    float: right;
+    top: ${props => props.top}%;
+    right: 0%;
+    height: 100%;
+    width: 10%;
     z-index: 999;
-    transition: top 0.5s ease;
+    transition: top 1.5s ease;
 `;
 export default class Notification extends React.Component {
 
     constructor(props){
         super(props);
         this.state = {
-            right: 9999
+            top: -110,
         };
     }
 
@@ -27,11 +29,11 @@ export default class Notification extends React.Component {
 
     showNotification = () => {
         this.setState({
-            right: 100
+            top: 0,
         }, () => {
             setTimeout(() => {
                 this.setState({
-                    right: 9999
+                    top: -110,
                 })
             }, 3000);
         })
@@ -41,7 +43,10 @@ export default class Notification extends React.Component {
         return(
             <React.Fragment>
                 <button onClick={this.showNotification}>Click me</button>
-                <Container id={this.props.id} right={this.state.right}>Example text</Container>
+                <Container id={this.props.id} top={this.state.top} >
+                    <a>✖️</a>
+                    Example text
+                </Container>
             </React.Fragment>
         );
     }
