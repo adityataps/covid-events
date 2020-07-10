@@ -1,33 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import styled from 'styled-components';
-import ProgressBar from './components/ProgressBar';
 
-// const AppWrapper = styled.div`
-//   display: flex;
-//   justify-content: center;
-// `;
-
-// const ProgressBarContainer = styled.div`
-//   width: 300px;
-//   margin-top: 200px;
-// `;
-
-// export default class App extends React.Component {
-//   constructor(props){
-//     super(props);
-//   }
-//   render() {
-//     return(
-//       <AppWrapper>
-//         <ProgressBarContainer>
-//         </ProgressBarContainer>
-//       </AppWrapper>
-//     );
-//   }
-
-// }
+import ProgressBar from './components/ProgressBar'
 
 function App() {
   return (
@@ -46,6 +21,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <ProgressBar id="progressBarComponent" />
     </div>
   );
 }
