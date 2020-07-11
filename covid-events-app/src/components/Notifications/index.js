@@ -14,12 +14,20 @@ const Container = styled.div`
     z-index: 999;
     transition: top 1.5s ease;
 `;
+
+const Button = styled.button`
+    position: relative;
+    top: -2%;
+    left: 50%;
+    display: block
+`;
 export default class Notification extends React.Component {
 
     constructor(props){
         super(props);
         this.state = {
             top: -110,
+            text: "Example Text"
         };
     }
 
@@ -27,25 +35,26 @@ export default class Notification extends React.Component {
 
     }
 
-    showNotification = () => {
+    showNotification = (myText) => {
         this.setState({
             top: 0,
-        }, () => {
-            setTimeout(() => {
-                this.setState({
-                    top: -110,
-                })
-            }, 3000);
+            text: myText
+        })
+    }
+
+    closeNotification = () => {
+        this.setState({
+            top: -110,
         })
     }
 
     render(){
         return(
             <React.Fragment>
-                <button onClick={this.showNotification}>Click me</button>
+                <button onClick={() => this.showNotification("Hey I'm here! This is a notification!")}>Click me</button>
                 <Container id={this.props.id} top={this.state.top} >
-                    <a>✖️</a>
-                    Example text
+                    <Button onClick={this.closeNotification}>✖️</Button>
+                    {this.state.text}
                 </Container>
             </React.Fragment>
         );
