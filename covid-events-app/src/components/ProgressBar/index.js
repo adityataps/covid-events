@@ -26,8 +26,8 @@ const ProgressDone = styled.div`
     transition: 1s ease 0.3s;
 `;
 
-function updateProgress(int) {
-    this.setProgress({int})
+function updateProgress(state) {
+    this.setProgress({state})
 }
 
 export default class ProgressBar extends React.Component {
