@@ -51,7 +51,6 @@ export default class Notification extends React.Component {
     render(){
         return(
             <React.Fragment>
-                <button onClick={() => this.showNotification("Hey I'm here! This is a notification!")}>Click me</button>
                 <Container id={this.props.id} top={this.state.top} >
                     <Button onClick={this.closeNotification}>✖️</Button>
                     {this.state.text}
