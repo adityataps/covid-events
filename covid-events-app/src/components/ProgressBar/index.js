@@ -38,9 +38,9 @@ const ProgressDone = styled.div`
     transition: 1s ease 0.3s;
 `;
 
-function updateProgress(state) {
-    this.setProgress({state})
-}
+const Button = styled.button`
+`;
+
 
 export default class ProgressBar extends React.Component {
 
@@ -49,7 +49,12 @@ export default class ProgressBar extends React.Component {
         this.state = {
             progress: 0
         };
-        updateProgress = updateProgress.bind(this)
+    }
+    
+    updateProgress = (newProgress) => {
+        this.setState({
+            progress: newProgress
+        })
     }
 
     onShow = () => {
@@ -61,12 +66,14 @@ export default class ProgressBar extends React.Component {
     // }
 
     render(){
+        console.log("Calling ProgressBar's render method with progress of " + this.state.progress)
         return(
             <React.Fragment>
                  <Progress id={this.props.id} >
                      <ProgressDone width={this.state.progress}></ProgressDone>
                      Progress Bar
                  </Progress>
+                 <Button onClick={() => this.updateProgress(100)}>Click me to fill progress bar</Button>
             </React.Fragment>
         );
     }
