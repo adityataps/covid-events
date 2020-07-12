@@ -3,6 +3,18 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const Container = styled.div`
+    background-color: #bd4040;
+    color: white;
+    padding: 16px;
+    z-index: 999;
+    transition: right 0.5s ease;
+    position: relative
+    top: 100px
+    right: 100px
+    height: 100%
+    width: 10%
+`;
 const Progress = styled.div`
     background-color: #d8d8d8;
     border-radius: 20px;
