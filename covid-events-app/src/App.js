@@ -92,6 +92,7 @@ function App() {
                 <Route path={"/previewinvite"} exact component={previewinvite} />
                 <Route path={"/"} render={() => <div>404</div>} />
             </Switch>
+            <Notifications></Notifications>
         </div>
     </BrowserRouter>
   );
