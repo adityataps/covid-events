@@ -13,7 +13,7 @@ export const summary = () => {
     return(
         <div className={"container"}>
             <h1 className={"titleBar"}>
-                Distancing
+                Summary
             </h1>
 
             <Link to={"/previewinvite"}>
