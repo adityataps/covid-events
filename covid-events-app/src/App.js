@@ -15,6 +15,9 @@ import { distancing, distancingSidebar } from "./components/screens/distancing"
 import { summary, summarySidebar } from "./components/screens/summary"
 import { previewinvite } from "./components/screens/previewinvite";
 
+import Notifications from './components/Notifications'
+import ProgressBar from './components/ProgressBar'
+
 function App() {
   return (
     <BrowserRouter>
