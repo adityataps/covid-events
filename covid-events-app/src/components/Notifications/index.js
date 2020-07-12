@@ -2,22 +2,32 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
-    background-color: #444;
+    background-color: #bd4040;
     color: white;
     padding: 16px;
     position: absolute;
-    top: 16px;
-    right: ${props => props.right}px;
-    height: 100vh
+    float: right;
+    top: ${props => props.top}%;
+    right: 0%;
+    height: 100%;
+    width: 10%;
     z-index: 999;
-    transition: top 0.5s ease;
+    transition: top 1.5s ease;
+`;
+
+const Button = styled.button`
+    position: relative;
+    top: -2%;
+    left: 50%;
+    display: block
 `;
 export default class Notification extends React.Component {
 
     constructor(props){
         super(props);
         this.state = {
-            right: 9999
+            top: -110,
+            text: "Example Text"
         };
     }
 
@@ -25,23 +35,26 @@ export default class Notification extends React.Component {
 
     }
 
-    showNotification = () => {
+    showNotification = (myText) => {
         this.setState({
-            right: 100
-        }, () => {
-            setTimeout(() => {
-                this.setState({
-                    right: 9999
-                })
-            }, 3000);
+            top: 0,
+            text: myText
+        })
+    }
+
+    closeNotification = () => {
+        this.setState({
+            top: -110,
         })
     }
 
     render(){
         return(
             <React.Fragment>
-                <button onClick={this.showNotification}>Click me</button>
-                <Container id={this.props.id} right={this.state.right}>Example text</Container>
+                <Container id={this.props.id} top={this.state.top} >
+                    <Button onClick={this.closeNotification}>✖️</Button>
+                    {this.state.text}
+                </Container>
             </React.Fragment>
         );
     }
