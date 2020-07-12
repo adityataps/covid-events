@@ -1,5 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 
 const Container = styled.div`
     background: #43b98b;
@@ -26,7 +27,7 @@ const ContentSection = styled.p`
     top: 40px;
 `
 
-const Button = styled.button`
+const NextButton = styled.button`
     color: palevioletred;
     font-size: 1em;
     margin: 1em;
@@ -57,7 +58,7 @@ export class Home extends React.Component {
                 but it is possible to have a fun event while also following
                 social distancing rules. Click "Next" to get started
                 </ContentSection>
-                <Button>Next</Button>
+		<Link to={"/you"}><NextButton>Next</NextButton></Link>
             </Container>
         );
     }
