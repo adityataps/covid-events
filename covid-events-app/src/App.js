@@ -1,9 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
-
-import { Home, homeSidebar } from "./components/screens/home"
+import { home, homeSidebar } from "./components/screens/home"
 import { you, youSidebar } from "./components/screens/you"
 import { attendees, attendeesSidebar } from "./components/screens/attendees"
 import { guestlist, guestlistSidebar } from "./components/screens/guestlist"
@@ -14,7 +12,6 @@ import { ppe, ppeSidebar } from "./components/screens/ppe"
 import { distancing, distancingSidebar } from "./components/screens/distancing"
 import { summary, summarySidebar } from "./components/screens/summary"
 import { previewinvite } from "./components/screens/previewinvite";
-
 import Notifications from './components/Notifications'
 import ProgressBar from './components/ProgressBar'
 
@@ -63,6 +60,8 @@ function App() {
                     </li>
                 </ul>
 
+                You are on:
+
                 <Switch>
                     <Route path={"/"} exact component={homeSidebar} />
                     <Route path={"/you"} exact component={youSidebar} />
@@ -79,7 +78,7 @@ function App() {
             </div>
 
             <Switch>
-                <Route path={"/"} exact component={Home} />
+                <Route path={"/"} exact component={home} />
                 <Route path={"/you"} exact component={you} />
                 <Route path={"/attendees"} exact component={attendees} />
                 <Route path={"/guestlist"} exact component={guestlist} />

@@ -1,0 +1,38 @@
+.container {
+    background: #43b98b;
+    position: relative;
+    width: 200%
+}
+
+.titleBar {
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    position: relative;
+    left: 10px;
+    top: 0px;
+}
+
+.contentSection {
+    text-align: left;
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    height: 90%;
+    padding-left: 80px;
+    padding-right: 80px;
+    top: 40px;
+}
+
+.button {
+    color: black;
+    font-size: 1em;
+    margin: 1em;
+    padding: 0.25em 1em;
+    border: 2px solid black;
+    border-radius: 3px;
+    bottom: -88%;
+    right: -25%;
+    position: relative;
+    width: 25%;
+}

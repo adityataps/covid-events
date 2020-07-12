@@ -1,4 +1,7 @@
 import React from "react";
+import { Link } from 'react-router-dom'
+import { Button } from 'react-bootstrap'
+import './screens.css'
 
 export const locationSidebar = () => {
     return(
@@ -8,6 +11,23 @@ export const locationSidebar = () => {
 
 export const location = () => {
     return(
-        <div>location</div>
+        <div className={"container"}>
+            <h1 className={"titleBar"}>
+                Location
+            </h1>
+
+            <Link to={"/guestlist"}>
+                <Button className={"button"}>
+                    <span>Previous</span>
+                </Button>
+            </Link>
+
+            <Link to={"/duration"}>
+                <Button className={"button"}>
+                    <span>Next</span>
+                </Button>
+            </Link>
+
+        </div>
     );
 };
