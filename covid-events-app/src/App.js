@@ -30,7 +30,7 @@ function App() {
                     background: "#f0f0f0"
                 }}
             >
-                <ul style={{ listStyleType: "none", padding: 0 }}>
+                <ul class = "sidebar" style={{ listStyleType: "none", padding: 0 }}>
                     <li>
                         <Link to={"/"}>home</Link>
                     </li>
