@@ -16,6 +16,9 @@ export const Duration = () => {
         risk: global.risk-1
     }))
 
+    //setGlobal({progress: (4*100/8 >= global.progress) ? 4*100/8 : global.progress});
+    setGlobal({progress: 4*100/8})
+
     return (
         <div>
             <p>Number of Hours: {global.duration} hours</p>

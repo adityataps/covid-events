@@ -11,6 +11,7 @@ export const ppeSidebar = () => {
 
 export const ppe = () => {
     return(
+        //setGlobal({progress: 6*100/8}),
         <div className={"container"}>
             <h1 className={"titleBar"}>
                 PPE

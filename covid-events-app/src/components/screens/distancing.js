@@ -78,6 +78,7 @@ export class Distancing extends React.Component {
 
     render(){
         return(
+            this.setGlobal({progress: 7*100/8}),
             <Container>
                 <TitleBar>Will you be enforcing social distancing?</TitleBar>
                 <FormSection>

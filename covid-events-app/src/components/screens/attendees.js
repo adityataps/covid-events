@@ -17,6 +17,7 @@ export const Attendees = () => {
     }))
 
     return (
+        setGlobal({progress: 1*100/8}),
         <div>
             <p>Number of Attendees: {global.attendees}</p>
             <button onClick={() => increment()}>+</button>

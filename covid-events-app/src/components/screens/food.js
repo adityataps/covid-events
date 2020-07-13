@@ -82,6 +82,7 @@ export class Food extends React.Component {
 
     render(){
         return(
+            this.setGlobal({progress: 5*100/8}),
             <Container>
                 <TitleBar>Will you have food at your event?</TitleBar>
                 <FormSection>
