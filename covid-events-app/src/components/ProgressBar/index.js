@@ -52,14 +52,6 @@ export default class ProgressBar extends React.Component {
         updateProgress = updateProgress.bind(this)
     }
 
-    onShow = () => {
-    }
-
-    // showProgress = () => {
-    //     progress.style.width = progress.getAttribute('data-done') + '%';
-    //     progress.style.opacity = 1;
-    // }
-
     render(){
         return(
             <React.Fragment>
