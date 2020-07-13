@@ -30,7 +30,7 @@ function App() {
                     background: "#f0f0f0"
                 }}
             >
-                <ul class = "sidebar" style={{ listStyleType: "none", padding: 0 }}>
+                <ul className = "sidebar" style={{ listStyleType: "none", padding: 0 }}>
                     <li>
                         <Link to={"/"}>home</Link>
                     </li>
@@ -93,6 +93,7 @@ function App() {
                 <Route path={"/"} render={() => <div>404</div>} />
             </Switch>
             <Notifications></Notifications>
+            <ProgressBar></ProgressBar>
         </div>
     </BrowserRouter>
   );
