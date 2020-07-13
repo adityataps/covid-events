@@ -5,7 +5,7 @@ import { home, homeSidebar } from "./components/screens/home"
 import { you, youSidebar } from "./components/screens/you"
 import { attendees, attendeesSidebar } from "./components/screens/attendees"
 import { guestlist, guestlistSidebar } from "./components/screens/guestlist"
-import { location, locationSidebar } from "./components/screens/location"
+import { Location, locationSidebar } from "./components/screens/location"
 import { duration, durationSidebar } from "./components/screens/duration"
 import { food, foodSidebar } from "./components/screens/food"
 import { ppe, ppeSidebar } from "./components/screens/ppe"
@@ -27,7 +27,7 @@ function App() {
                     background: "#f0f0f0"
                 }}
             >
-                <ul class = "sidebar" style={{ listStyleType: "none", padding: 0 }}>
+                <ul className = "sidebar" style={{ listStyleType: "none", padding: 0 }}>
                     <li>
                         <Link to={"/"}>home</Link>
                     </li>
@@ -82,7 +82,7 @@ function App() {
                 <Route path={"/you"} exact component={you} />
                 <Route path={"/attendees"} exact component={attendees} />
                 <Route path={"/guestlist"} exact component={guestlist} />
-                <Route path={"/location"} exact component={location} />
+                <Route path={"/location"} exact component={Location} />
                 <Route path={"/duration"} exact component={duration} />
                 <Route path={"/food"} exact component={food} />
                 <Route path={"/ppe"} exact component={ppe} />
@@ -92,6 +92,7 @@ function App() {
                 <Route path={"/"} render={() => <div>404</div>} />
             </Switch>
             <Notifications></Notifications>
+            <ProgressBar></ProgressBar>
         </div>
     </BrowserRouter>
   );
