@@ -1,7 +1,29 @@
-import React from "react";
 import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
 import './screens.css'
+import React, { useGlobal } from "reactn";
+
+export const Duration = () => {
+    const [ global, setGlobal ] = useGlobal();
+
+    const increment = () => setGlobal(state => ({
+        duration: state.duration+1,
+        risk: global.risk+1
+    }))
+
+    const decrement = () => setGlobal(state => ({
+        duration: state.duration-1,
+        risk: global.risk-1
+    }))
+
+    return (
+        <div>
+            <p>Number of Hours: {global.duration} hours</p>
+            <button onClick={() => increment()}>+</button>
+            <button onClick={() => decrement()}>-</button>
+        </div>
+    );
+}
 
 export const durationSidebar = () => {
     return(

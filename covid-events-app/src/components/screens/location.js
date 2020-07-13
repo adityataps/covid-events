@@ -1,5 +1,6 @@
-import React from "react";
 import styled from 'styled-components';
+import { Link } from 'react-router-dom'
+import React, { useGlobal } from "reactn";
 
 const Container = styled.div`
     background: #43b98b;
@@ -44,19 +45,54 @@ const Button = styled.button`
     position: absolute;
 `;
 
+
+
 export class Location extends React.Component {
     constructor(props){
         super(props);
         this.state = {
             page: "location",
-            selectedOption: "none"
+            selectedOption: this.global.location
         };
     }
 
-    handleChange = (event) => {
-        this.setState({selectedOption: event.target.value});
-    }
 
+    handleChange = (event) => {
+        if(this.global.location === 'theater')
+        {
+            this.setGlobal({risk: this.global.risk - 8});
+        } else if(this.global.location === 'park'){
+            this.setGlobal({risk: this.global.risk - 1});
+        } else if(this.global.location === 'backyard'){
+            this.setGlobal({risk: this.global.risk - 3});
+        } else if(this.global.location === 'living room'){
+            this.setGlobal({risk: this.global.risk - 10});
+        } else if(this.global.location === 'arcade'){
+            this.setGlobal({risk: this.global.risk - 7});
+        } else if(this.global.location === 'restaurant'){
+            this.setGlobal({risk: this.global.risk - 6});
+        } else {
+            this.setGlobal({risk: this.global.risk - 0});
+        }
+        this.setState({selectedOption: event.target.value});
+        this.setGlobal({location: event.target.value})
+        if(this.global.location === 'theater')
+        {
+            this.setGlobal({risk: this.global.risk + 8});
+        } else if(this.global.location === 'park'){
+            this.setGlobal({risk: this.global.risk + 1});
+        } else if(this.global.location === 'backyard'){
+            this.setGlobal({risk: this.global.risk + 3});
+        } else if(this.global.location === 'living room'){
+            this.setGlobal({risk: this.global.risk + 10});
+        } else if(this.global.location === 'arcade'){
+            this.setGlobal({risk: this.global.risk + 7});
+        } else if(this.global.location === 'restaurant'){
+            this.setGlobal({risk: this.global.risk + 6});
+        } else {
+            this.setGlobal({risk: this.global.risk + 0});
+        }
+    }
 
     render(){
         return(
@@ -83,7 +119,7 @@ export class Location extends React.Component {
                     </div>
                     <div className="radio">
                     <label>
-                        <input type="radio" value="livingroom" checked={this.state.selectedOption === 'livingroom'} onChange={this.handleChange}/>
+                        <input type="radio" value="living room" checked={this.state.selectedOption === 'living room'} onChange={this.handleChange}/>
                         In your living room
                     </label>
                     </div>
