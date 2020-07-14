@@ -39,6 +39,20 @@ const PrevButton = styled.button`
     position: absolute;
 `;
 
+const Button = styled.button`
+    color: palevioletred;
+    font-size: 1em;
+    margin: 1em;
+    padding: 0.25em 1em;
+    border: 2px solid palevioletred;
+    border-radius: 3px;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+`;
+
+
+
 export class Summary extends React.Component {
     constructor(props){
         super(props);
