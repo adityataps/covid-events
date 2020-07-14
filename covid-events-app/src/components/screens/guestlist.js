@@ -1,33 +1,85 @@
 import React from "react";
-import { Link } from 'react-router-dom'
-import { Button } from 'react-bootstrap'
-import './screens.css'
+import styled from 'styled-components';
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+
+const Container = styled.div`
+    background: #43b98b;
+    position: relative;
+    width: 90%
+`;
+
+const TitleBar = styled.h1`
+    text-align: center;
+    color: white;
+    font-size: 15px;
+    position: absolute;
+    left: 10px;
+    top: 0px;
+`
+const ContentSection = styled.p`
+    text-align: left;
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    height: 90%;
+    padding-left: 10px;
+    padding-right: 10px;
+    top: 40px;
+`
+
+const NextButton = styled.button`
+    color: palevioletred;
+    font-size: 1em;
+    margin: 1em;
+    padding: 0.25em 1em;
+    border: 2px solid palevioletred;
+    border-radius: 3px;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+`;
+
+const PrevButton = styled.button`
+    color: palevioletred;
+    font-size: 1em;
+    margin: 1em;
+    padding: 0.25em 1em;
+    border: 2px solid palevioletred;
+    border-radius: 3px;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+`;
+
+export class Guestlist extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            page: guestlist
+        };
+    }
+
+    render(){
+        return(
+            <Container>
+                <TitleBar>Stuff about guestlist here!</TitleBar>
+                <ContentSection>Stuff about guestlist here!
+                </ContentSection>
+                <Link to={"/location"}><NextButton>Next</NextButton></Link>
+                <Link to={"/attendees"}><PrevButton>Prev</PrevButton></Link>
+            </Container>
+        );
+    }
+}
 
 export const guestlistSidebar = () => {
     return(
-        <div>guestlist</div>
+        <div>guestlistpage</div>
     );
 };
 
 export const guestlist = () => {
     return(
-        <div className={"container"}>
-            <h1 className={"titleBar"}>
-                Guest List
-            </h1>
-
-            <Link to={"/attendees"}>
-                <Button className={"button"}>
-                    <span>Previous</span>
-                </Button>
-            </Link>
-
-            <Link to={"/location"}>
-                <Button className={"button"}>
-                    <span>Next</span>
-                </Button>
-            </Link>
-
-        </div>
+        <div>guestlistpage</div>
     );
 };
