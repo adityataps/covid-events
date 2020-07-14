@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import React, { useGlobal } from "reactn";
+import {notify} from "../Notifications";
 
 const Container = styled.div`
     background: #43b98b;
@@ -64,7 +65,8 @@ export class Location extends React.Component {
         super(props);
         this.state = {
             page: "location",
-            selectedOption: this.global.location
+            selectedOption: this.global.location,
+            arcadeSelectedOnce: false
         };
     }
 
@@ -98,6 +100,10 @@ export class Location extends React.Component {
         } else if(this.global.location === 'living room'){
             this.setGlobal({risk: this.global.risk + 10});
         } else if(this.global.location === 'arcade'){
+            if(!this.state.arcadeSelectedOnce){
+                this.setState({arcadeSelectedOnce: true});
+                notify("Enclosed spaces with limited air circulation can be risky. Try to steer away form events where attendees will share materials as well.")
+            }
             this.setGlobal({risk: this.global.risk + 7});
         } else if(this.global.location === 'restaurant'){
             this.setGlobal({risk: this.global.risk + 6});
