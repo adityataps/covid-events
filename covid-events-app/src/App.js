@@ -1,16 +1,17 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
-import { home, homeSidebar } from "./components/screens/home"
-import { you, youSidebar } from "./components/screens/you"
-import { attendees, attendeesSidebar } from "./components/screens/attendees"
-import { guestlist, guestlistSidebar } from "./components/screens/guestlist"
-import { location, locationSidebar } from "./components/screens/location"
-import { duration, durationSidebar } from "./components/screens/duration"
-import { food, foodSidebar } from "./components/screens/food"
-import { ppe, ppeSidebar } from "./components/screens/ppe"
-import { distancing, distancingSidebar } from "./components/screens/distancing"
-import { summary, summarySidebar } from "./components/screens/summary"
+
+import { Home, homeSidebar } from "./components/screens/home"
+import { You, you, youSidebar } from "./components/screens/you"
+import { Attendees, attendees, attendeesSidebar } from "./components/screens/attendees"
+import { Guestlist, guestlist, guestlistSidebar } from "./components/screens/guestlist"
+import { Location, location, locationSidebar } from "./components/screens/location"
+import { Duration, duration, durationSidebar } from "./components/screens/duration"
+import { Food, food, foodSidebar } from "./components/screens/food"
+import { Ppe, ppe, ppeSidebar } from "./components/screens/ppe"
+import { Distancing, distancing, distancingSidebar } from "./components/screens/distancing"
+import { Summary,summary, summarySidebar } from "./components/screens/summary"
 import { previewinvite } from "./components/screens/previewinvite";
 import Notifications from './components/Notifications'
 import ProgressBar from './components/ProgressBar'
@@ -27,7 +28,7 @@ function App() {
                     background: "#f0f0f0"
                 }}
             >
-                <ul class = "sidebar" style={{ listStyleType: "none", padding: 0 }}>
+                <ul className = "sidebar" style={{ listStyleType: "none", padding: 0 }}>
                     <li>
                         <Link to={"/"}>home</Link>
                     </li>
@@ -78,20 +79,21 @@ function App() {
             </div>
 
             <Switch>
-                <Route path={"/"} exact component={home} />
-                <Route path={"/you"} exact component={you} />
-                <Route path={"/attendees"} exact component={attendees} />
-                <Route path={"/guestlist"} exact component={guestlist} />
-                <Route path={"/location"} exact component={location} />
-                <Route path={"/duration"} exact component={duration} />
-                <Route path={"/food"} exact component={food} />
-                <Route path={"/ppe"} exact component={ppe} />
-                <Route path={"/distancing"} exact component={distancing} />
-                <Route path={"/summary"} exact component={summary} />
+                <Route path={"/"} exact component={Home} />
+                <Route path={"/you"} exact component={You} />
+                <Route path={"/attendees"} exact component={Attendees} />
+                <Route path={"/guestlist"} exact component={Guestlist} />
+                <Route path={"/location"} exact component={Location} />
+                <Route path={"/duration"} exact component={Duration} />
+                <Route path={"/food"} exact component={Food} />
+                <Route path={"/ppe"} exact component={Ppe} />
+                <Route path={"/distancing"} exact component={Distancing} />
+                <Route path={"/summary"} exact component={Summary} />
                 <Route path={"/previewinvite"} exact component={previewinvite} />
                 <Route path={"/"} render={() => <div>404</div>} />
             </Switch>
             <Notifications></Notifications>
+            <ProgressBar></ProgressBar>
         </div>
     </BrowserRouter>
   );
