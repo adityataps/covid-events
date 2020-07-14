@@ -44,7 +44,7 @@ export default class Notification extends React.Component {
     }
 
     onShow = (myText) => {
-        if(this.top == 0 ){
+        if(this.top === 0 ){
             setTimeout(() => {
                 this.setState({
                     top: -110
