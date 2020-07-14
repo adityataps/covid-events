@@ -62,12 +62,12 @@ export class Duration extends React.Component {
     }
     increment = () => this.setGlobal(state => ({
         duration: this.global.duration+1,
-        risk: this.global.risk+1
+        durationRisk: this.global.durationRisk+1
     }))
 
     decrement = () => this.setGlobal(state => ({
         duration: this.global.duration-1,
-        risk: this.global.risk-1
+        durationRisk: this.global.durationRisk-1
     }))
 
     //setGlobal({progress: (4*100/8 >= global.progress) ? 4*100/8 : global.progress});

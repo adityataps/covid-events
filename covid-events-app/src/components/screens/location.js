@@ -74,41 +74,41 @@ export class Location extends React.Component {
     handleChange = (event) => {
         if(this.global.location === 'theater')
         {
-            this.setGlobal({risk: this.global.risk - 8});
+            this.setGlobal({locationRisk: this.global.locationRisk - 8});
         } else if(this.global.location === 'park'){
-            this.setGlobal({risk: this.global.risk - 1});
+            this.setGlobal({locationRisk: this.global.locationRisk - 1});
         } else if(this.global.location === 'backyard'){
-            this.setGlobal({risk: this.global.risk - 3});
+            this.setGlobal({locationRisk: this.global.locationRisk - 3});
         } else if(this.global.location === 'living room'){
-            this.setGlobal({risk: this.global.risk - 10});
+            this.setGlobal({locationRisk: this.global.locationRisk - 10});
         } else if(this.global.location === 'arcade'){
-            this.setGlobal({risk: this.global.risk - 7});
+            this.setGlobal({locationRisk: this.global.locationRisk - 7});
         } else if(this.global.location === 'restaurant'){
-            this.setGlobal({risk: this.global.risk - 6});
+            this.setGlobal({locationRisk: this.global.locationRisk - 6});
         } else {
-            this.setGlobal({risk: this.global.risk - 0});
+            this.setGlobal({locationRisk: this.global.locationRisk - 0});
         }
         this.setState({selectedOption: event.target.value});
         this.setGlobal({location: event.target.value})
         if(this.global.location === 'theater')
         {
-            this.setGlobal({risk: this.global.risk + 8});
+            this.setGlobal({locationRisk: this.global.locationRisk + 8});
         } else if(this.global.location === 'park'){
-            this.setGlobal({risk: this.global.risk + 1});
+            this.setGlobal({locationRisk: this.global.locationRisk + 1});
         } else if(this.global.location === 'backyard'){
-            this.setGlobal({risk: this.global.risk + 3});
+            this.setGlobal({locationRisk: this.global.locationRisk + 3});
         } else if(this.global.location === 'living room'){
-            this.setGlobal({risk: this.global.risk + 10});
+            this.setGlobal({locationRisk: this.global.locationRisk + 10});
         } else if(this.global.location === 'arcade'){
             if(!this.state.arcadeSelectedOnce){
                 this.setState({arcadeSelectedOnce: true});
-                notify("Enclosed spaces with limited air circulation can be risky. Try to steer away form events where attendees will share materials as well.")
+                notify("Enclosed spaces with limited air circulation can be locationRisky. Try to steer away form events where attendees will share materials as well.")
             }
-            this.setGlobal({risk: this.global.risk + 7});
+            this.setGlobal({locationRisk: this.global.locationRisk + 7});
         } else if(this.global.location === 'restaurant'){
-            this.setGlobal({risk: this.global.risk + 6});
+            this.setGlobal({locationRisk: this.global.locationRisk + 6});
         } else {
-            this.setGlobal({risk: this.global.risk + 0});
+            this.setGlobal({locationRisk: this.global.locationRisk + 0});
         }
     }
     render(){

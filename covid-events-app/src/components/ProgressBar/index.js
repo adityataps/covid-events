@@ -15,10 +15,13 @@ const Container = styled.div`
     height: 100%
     width: 10%
 `;
+
 const Progress = styled.div`
+    top: 82%;
+    right: 20%;
     background-color: #d8d8d8;
     border-radius: 20px;
-    position: relative;
+    position: absolute;
     margin: 15px 0;
     height: 30px;
     width: 300px;
@@ -57,12 +60,10 @@ export default class ProgressBar extends React.Component {
     // }
 
     render(){
-        console.log("Calling ProgressBar's render method with progress of " + this.global.progress)
         return(
             <React.Fragment>
                  <Progress id={this.props.id} >
                      <ProgressDone width={this.global.progress}></ProgressDone>
-                     Progress Bar
                  </Progress>
             </React.Fragment>
         );

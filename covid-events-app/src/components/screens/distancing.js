@@ -70,21 +70,21 @@ export class Distancing extends React.Component {
     handleChange = (event) => {
         if(this.global.distancing === 'Yes')
         {
-            this.setGlobal({risk: this.global.risk - 1});
+            this.setGlobal({distancingRisk: this.global.distancingRisk - 1});
         } else if(this.global.distancing === 'No'){
-            this.setGlobal({risk: this.global.risk - 10});
+            this.setGlobal({distancingRisk: this.global.distancingRisk - 10});
         } else {
-            this.setGlobal({risk: this.global.risk - 0});
+            this.setGlobal({distancingRisk: this.global.distancingRisk - 0});
         }
         this.setState({selectedOption: event.target.value});
         this.setGlobal({distancing: event.target.value})
         if(this.global.distancing === 'Yes')
         {
-            this.setGlobal({risk: this.global.risk + 1});
+            this.setGlobal({distancingRisk: this.global.distancingRisk + 1});
         } else if(this.global.distancing === 'No'){
-            this.setGlobal({risk: this.global.risk + 10});
+            this.setGlobal({distancingRisk: this.global.distancingRisk + 10});
         } else {
-            this.setGlobal({risk: this.global.risk + 0});
+            this.setGlobal({distancingRisk: this.global.distancingRisk + 0});
         }
     }
 

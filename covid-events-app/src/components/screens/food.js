@@ -70,25 +70,25 @@ export class Food extends React.Component {
     handleChange = (event) => {
         if(this.global.food === 'Yes, provided by me')
         {
-            this.setGlobal({risk: this.global.risk - 7});
+            this.setGlobal({foodRisk: this.global.foodRisk - 7});
         } else if(this.global.food === 'Yes, provided by others'){
-            this.setGlobal({risk: this.global.risk - 3});
+            this.setGlobal({foodRisk: this.global.foodRisk - 3});
         } else if(this.global.food === 'No'){
-            this.setGlobal({risk: this.global.risk - 1});
+            this.setGlobal({foodRisk: this.global.foodRisk - 1});
         } else {
-            this.setGlobal({risk: this.global.risk - 0});
+            this.setGlobal({foodRisk: this.global.foodRisk - 0});
         }
         this.setState({selectedOption: event.target.value});
         this.setGlobal({food: event.target.value})
         if(this.global.food === 'Yes, provided by me')
         {
-            this.setGlobal({risk: this.global.risk + 7});
+            this.setGlobal({foodRisk: this.global.foodRisk + 7});
         } else if(this.global.food === 'Yes, provided by others'){
-            this.setGlobal({risk: this.global.risk + 3});
+            this.setGlobal({foodRisk: this.global.foodRisk + 3});
         } else if(this.global.food === 'No'){
-            this.setGlobal({risk: this.global.risk + 1});
+            this.setGlobal({foodRisk: this.global.foodRisk + 1});
         } else {
-            this.setGlobal({risk: this.global.risk + 0});
+            this.setGlobal({foodRisk: this.global.foodRisk + 0});
         }
     }
 

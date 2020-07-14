@@ -76,7 +76,7 @@ export class You extends React.Component {
                         onChange = {this.updateAge} />
                 </ContentSection>
                 <Link to={"/attendees"}><NextButton>Next</NextButton></Link>
-		        <Link to={"/home"}><PrevButton>Prev</PrevButton></Link>
+		        <Link to={"/"}><PrevButton>Prev</PrevButton></Link>
             </Container>
         );
     }

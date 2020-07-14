@@ -71,14 +71,14 @@ export class Attendees extends React.Component {
     increment = () => { 
         this.setGlobal(state => ({
             attendees: this.global.attendees+1,
-            risk: this.global.risk+1
+            attendeesRisk: this.global.attendeesRisk+1
         }))
         this.checkAttendees()
     }
     decrement = () => {
         this.setGlobal(state => ({
             attendees: this.global.attendees-1,
-            risk: this.global.risk-1
+            attendeesRisk: this.global.attendeesRisk-1
         }))
         this.checkAttendees()
     }
