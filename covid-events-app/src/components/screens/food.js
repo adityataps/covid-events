@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { Link } from 'react-router-dom'
 import React, { useGlobal } from "reactn";
+import styled from 'styled-components';
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 
 const Container = styled.div`
     background: #43b98b;
@@ -33,7 +33,7 @@ const FormSection = styled.form`
     left: 25px;
 `
 
-const Button = styled.button`
+const NextButton = styled.button`
     color: palevioletred;
     font-size: 1em;
     margin: 1em;
@@ -42,6 +42,18 @@ const Button = styled.button`
     border-radius: 3px;
     bottom: 0;
     right: 0;
+    position: absolute;
+`;
+
+const PrevButton = styled.button`
+    color: palevioletred;
+    font-size: 1em;
+    margin: 1em;
+    padding: 0.25em 1em;
+    border: 2px solid palevioletred;
+    border-radius: 3px;
+    bottom: 0;
+    left: 0;
     position: absolute;
 `;
 
@@ -105,7 +117,8 @@ export class Food extends React.Component {
                     </label>
                     </div>
                 </FormSection>
-                <Button onClick={this.handleSubmit}>Next</Button>
+                <Link to={"/ppe"}><NextButton>Next</NextButton></Link>
+                <Link to={"/duration"}><PrevButton>Prev</PrevButton></Link>
             </Container>
         );
     }
@@ -113,29 +126,12 @@ export class Food extends React.Component {
 
 export const foodSidebar = () => {
     return(
-        <div>food</div>
+        <div>foodpage</div>
     );
 };
 
 export const food = () => {
     return(
-        <div className={"container"}>
-            <h1 className={"titleBar"}>
-                Food
-            </h1>
-
-            <Link to={"/duration"}>
-                <Button className={"button"}>
-                    <span>Previous</span>
-                </Button>
-            </Link>
-
-            <Link to={"/ppe"}>
-                <Button className={"button"}>
-                    <span>Next</span>
-                </Button>
-            </Link>
-
-        </div>
+        <div>foodpage</div>
     );
 };

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import React, { useGlobal } from "reactn";
 
 const Container = styled.div`
@@ -33,7 +33,7 @@ const FormSection = styled.form`
     left: 25px;
 `
 
-const Button = styled.button`
+const NextButton = styled.button`
     color: palevioletred;
     font-size: 1em;
     margin: 1em;
@@ -42,6 +42,18 @@ const Button = styled.button`
     border-radius: 3px;
     bottom: 0;
     right: 0;
+    position: absolute;
+`;
+
+const PrevButton = styled.button`
+    color: palevioletred;
+    font-size: 1em;
+    margin: 1em;
+    padding: 0.25em 1em;
+    border: 2px solid palevioletred;
+    border-radius: 3px;
+    bottom: 0;
+    left: 0;
     position: absolute;
 `;
 
@@ -93,7 +105,6 @@ export class Location extends React.Component {
             this.setGlobal({risk: this.global.risk + 0});
         }
     }
-
     render(){
         return(
             this.setGlobal({progress: 3*100/8}),
@@ -137,7 +148,8 @@ export class Location extends React.Component {
                     </label>
                     </div>
                 </FormSection>
-                <Button onClick={this.handleSubmit}>Next</Button>
+                <Link to={"/duration"}><NextButton>Next</NextButton></Link>
+                <Link to={"/guestlist"}><PrevButton>Prev</PrevButton></Link>
             </Container>
         );
     }
@@ -145,29 +157,12 @@ export class Location extends React.Component {
 
 export const locationSidebar = () => {
     return(
-        <div>location</div>
+        <div>locationpage</div>
     );
 };
 
 export const location = () => {
     return(
-        <div className={"container"}>
-            <h1 className={"titleBar"}>
-                Location
-            </h1>
-
-            <Link to={"/guestlist"}>
-                <Button className={"button"}>
-                    <span>Previous</span>
-                </Button>
-            </Link>
-
-            <Link to={"/duration"}>
-                <Button className={"button"}>
-                    <span>Next</span>
-                </Button>
-            </Link>
-
-        </div>
+        <div>locationpage</div>
     );
 };

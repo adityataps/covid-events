@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import ee from "event-emitter";
 
 const Container = styled.div`
     background-color: #bd4040;
@@ -21,6 +22,13 @@ const Button = styled.button`
     left: 50%;
     display: block
 `;
+
+const emitter = new ee();
+
+export const notify = (msg) => {
+    emitter.emit('notificationSystem', msg);
+}
+
 export default class Notification extends React.Component {
 
     constructor(props){
@@ -29,10 +37,21 @@ export default class Notification extends React.Component {
             top: -110,
             text: "Example Text"
         };
+
+        emitter.on('notificationSystem', (msg) => {
+            this.showNotification(msg)
+        })
     }
 
-    onShow = () => {
-
+    onShow = (myText) => {
+        if(this.top == 0 ){
+            setTimeout(() => {
+                this.setState({
+                    top: -110
+                })
+            }, 1500);
+        }
+        this.showNotification(myText);
     }
 
     showNotification = (myText) => {

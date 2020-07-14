@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import styled from 'styled-components';
 import React, { useGlobal } from "reactn";
 
@@ -33,7 +33,7 @@ const FormSection = styled.form`
     left: 25px;
 `
 
-const Button = styled.button`
+const NextButton = styled.button`
     color: palevioletred;
     font-size: 1em;
     margin: 1em;
@@ -42,6 +42,18 @@ const Button = styled.button`
     border-radius: 3px;
     bottom: 0;
     right: 0;
+    position: absolute;
+`;
+
+const PrevButton = styled.button`
+    color: palevioletred;
+    font-size: 1em;
+    margin: 1em;
+    padding: 0.25em 1em;
+    border: 2px solid palevioletred;
+    border-radius: 3px;
+    bottom: 0;
+    left: 0;
     position: absolute;
 `;
 
@@ -95,7 +107,8 @@ export class Distancing extends React.Component {
                     </label>
                     </div>
                 </FormSection>
-                <Button onClick={this.handleSubmit}>Next</Button>
+                <Link to={"/summary"}><NextButton>Next</NextButton></Link>
+                <Link to={"/ppe"}><PrevButton>Prev</PrevButton></Link>
             </Container>
         );
     }
@@ -103,29 +116,12 @@ export class Distancing extends React.Component {
 
 export const distancingSidebar = () => {
     return(
-        <div>distancing</div>
+        <div>distancingpage</div>
     );
 };
 
 export const distancing = () => {
     return(
-        <div className={"container"}>
-            <h1 className={"titleBar"}>
-                Distancing
-            </h1>
-
-            <Link to={"/ppe"}>
-                <Button className={"button"}>
-                    <span>Previous</span>
-                </Button>
-            </Link>
-
-            <Link to={"/summary"}>
-                <Button className={"button"}>
-                    <span>Summary</span>
-                </Button>
-            </Link>
-
-        </div>
+        <div>distancingpage</div>
     );
 };
