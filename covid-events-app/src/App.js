@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 
@@ -14,7 +13,6 @@ import { Ppe, ppe, ppeSidebar } from "./components/screens/ppe"
 import { Distancing, distancing, distancingSidebar } from "./components/screens/distancing"
 import { Summary,summary, summarySidebar } from "./components/screens/summary"
 import { previewinvite } from "./components/screens/previewinvite";
-
 import Notifications from './components/Notifications'
 import ProgressBar from './components/ProgressBar'
 
@@ -30,7 +28,7 @@ function App() {
                     background: "#f0f0f0"
                 }}
             >
-                <ul class = "sidebar" style={{ listStyleType: "none", padding: 0 }}>
+                <ul className = "sidebar" style={{ listStyleType: "none", padding: 0 }}>
                     <li>
                         <Link to={"/"}>home</Link>
                     </li>
@@ -63,6 +61,8 @@ function App() {
                     </li>
                 </ul>
 
+                You are on:
+
                 <Switch>
                     <Route path={"/"} exact component={homeSidebar} />
                     <Route path={"/you"} exact component={youSidebar} />
@@ -93,6 +93,7 @@ function App() {
                 <Route path={"/"} render={() => <div>404</div>} />
             </Switch>
             <Notifications></Notifications>
+            <ProgressBar></ProgressBar>
         </div>
     </BrowserRouter>
   );
