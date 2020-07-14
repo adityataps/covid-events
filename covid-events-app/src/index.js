@@ -16,7 +16,7 @@ setGlobal({
     location: 'None',
     duration: 0,
     food: 'None',
-    ppe: 'None',
+    ppe: ['Test'],
     distancing: 'None'
 });
 

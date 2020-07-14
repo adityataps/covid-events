@@ -55,7 +55,7 @@ export class Attendees extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            page: attendees
+            page: 'attendees'
         };
     }
     increment = () => this.setGlobal(state => ({
