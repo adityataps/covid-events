@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useGlobal } from "reactn";
 import styled from 'styled-components';
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 
@@ -58,12 +58,25 @@ export class Attendees extends React.Component {
             page: attendees
         };
     }
+    increment = () => this.setGlobal(state => ({
+        attendees: this.global.attendees+1,
+        risk: this.global.risk+1
+    }))
+
+    decrement = () => this.setGlobal(state => ({
+        attendees: this.global.attendees-1,
+        risk: this.global.risk-1
+    }))
 
     render(){
         return(
+            this.setGlobal({progress: 1*100/8}),
             <Container>
-                <TitleBar>Stuff about attendees here!</TitleBar>
-                <ContentSection>Stuff about attendees here!
+                <TitleBar>How many people will attend?</TitleBar>
+                <ContentSection>
+                    <p>Number of Attendees: {this.global.attendees}</p>
+                    <button onClick={() => this.increment()}>+</button>
+                    <button onClick={() => this.decrement()}>-</button>
                 </ContentSection>
                 <Link to={"/guestlist"}><NextButton>Next</NextButton></Link>
                 <Link to={"/you"}><PrevButton>Prev</PrevButton></Link>

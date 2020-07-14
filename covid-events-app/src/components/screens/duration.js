@@ -1,4 +1,6 @@
-import React from "react";
+import { Button } from 'react-bootstrap'
+import './screens.css'
+import React, { useGlobal } from "reactn";
 import styled from 'styled-components';
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 
@@ -58,16 +60,32 @@ export class Duration extends React.Component {
             page: duration
         };
     }
+    increment = () => this.setGlobal(state => ({
+        duration: this.global.duration+1,
+        risk: this.global.risk+1
+    }))
 
+    decrement = () => this.setGlobal(state => ({
+        duration: this.global.duration-1,
+        risk: this.global.risk-1
+    }))
+
+    //setGlobal({progress: (4*100/8 >= global.progress) ? 4*100/8 : global.progress});
     render(){
-        return(
-            <Container>
-                <TitleBar>Stuff about duration here!</TitleBar>
-                <ContentSection>Stuff about duration here!
-                </ContentSection>
-                <Link to={"/food"}><NextButton>Next</NextButton></Link>
-                <Link to={"/location"}><PrevButton>Prev</PrevButton></Link>
-            </Container>
+        return (
+            this.setGlobal({progress: 4*100/8}),
+            <React.Fragment>
+                <Container>
+                    <TitleBar>How long will the event last?</TitleBar>
+                    <ContentSection>
+                        <p>Number of Hours: {this.global.duration} hours</p>
+                        <button onClick={() => this.increment()}>+</button>
+                        <button onClick={() => this.decrement()}>-</button>
+                    </ContentSection>
+                    <Link to={"/food"}><NextButton>Next</NextButton></Link>
+                    <Link to={"/location"}><PrevButton>Prev</PrevButton></Link>
+                </Container>
+            </React.Fragment>
         );
     }
 }

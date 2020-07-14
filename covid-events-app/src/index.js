@@ -3,6 +3,22 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { setGlobal } from 'reactn';
+
+setGlobal({
+    page: 'home',
+    summaryCheck: false,
+    progress: 0,
+    risk: 0,
+    name: 'None',
+    age: 0,
+    attendees: 0,
+    location: 'None',
+    duration: 0,
+    food: 'None',
+    ppe: 'None',
+    distancing: 'None'
+});
 
 ReactDOM.render(
   <React.StrictMode>

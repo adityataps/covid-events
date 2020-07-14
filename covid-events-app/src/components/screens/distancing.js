@@ -1,6 +1,6 @@
-import React from "react";
-import styled from 'styled-components';
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+import styled from 'styled-components';
+import React, { useGlobal } from "reactn";
 
 const Container = styled.div`
     background: #43b98b;
@@ -25,6 +25,12 @@ const ContentSection = styled.p`
     padding-left: 10px;
     padding-right: 10px;
     top: 40px;
+`
+
+const FormSection = styled.form`
+    position: absolute;
+    top: 30%;
+    left: 25px;
 `
 
 const NextButton = styled.button`
@@ -55,16 +61,52 @@ export class Distancing extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            page: distancing
+            page: "distancing",
+            selectedOption: this.global.distancing
         };
+    }
+
+
+    handleChange = (event) => {
+        if(this.global.distancing === 'Yes')
+        {
+            this.setGlobal({risk: this.global.risk - 1});
+        } else if(this.global.distancing === 'No'){
+            this.setGlobal({risk: this.global.risk - 10});
+        } else {
+            this.setGlobal({risk: this.global.risk - 0});
+        }
+        this.setState({selectedOption: event.target.value});
+        this.setGlobal({distancing: event.target.value})
+        if(this.global.distancing === 'Yes')
+        {
+            this.setGlobal({risk: this.global.risk + 1});
+        } else if(this.global.distancing === 'No'){
+            this.setGlobal({risk: this.global.risk + 10});
+        } else {
+            this.setGlobal({risk: this.global.risk + 0});
+        }
     }
 
     render(){
         return(
+            this.setGlobal({progress: 7*100/8}),
             <Container>
-                <TitleBar>Stuff about distancing here!</TitleBar>
-                <ContentSection>Stuff about distancing here!
-                </ContentSection>
+                <TitleBar>Will you be enforcing social distancing?</TitleBar>
+                <FormSection>
+                    <div className="radio">
+                    <label>
+                        <input type="radio" value="Yes" checked={this.state.selectedOption === 'Yes'} onChange={this.handleChange}/>
+                        Yes.
+                    </label>
+                    </div>
+                    <div className="radio">
+                    <label>
+                        <input type="radio" value="No" checked={this.state.selectedOption === 'No'} onChange={this.handleChange}/>
+                        No.
+                    </label>
+                    </div>
+                </FormSection>
                 <Link to={"/summary"}><NextButton>Next</NextButton></Link>
                 <Link to={"/ppe"}><PrevButton>Prev</PrevButton></Link>
             </Container>
