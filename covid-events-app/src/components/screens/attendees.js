@@ -1,6 +1,7 @@
 import React, { useGlobal } from "reactn";
 import styled from 'styled-components';
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+import {notify} from "../Notifications"
 
 const Container = styled.div`
     background: #43b98b;
@@ -55,18 +56,32 @@ export class Attendees extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            page: attendees
+            page: attendees,
+            attendeeLimitOnce: false
         };
     }
-    increment = () => this.setGlobal(state => ({
-        attendees: this.global.attendees+1,
-        risk: this.global.risk+1
-    }))
 
-    decrement = () => this.setGlobal(state => ({
-        attendees: this.global.attendees-1,
-        risk: this.global.risk-1
-    }))
+    checkAttendees = () => { 
+        if(!this.state.attendeeLimitOnce && this.global.attendees >= 10){
+            this.setState({attendeeLimitOnce: true});
+            notify("CDC guidelines recommend that gatherings be limited to 10 people or less. Consider reducing the number of attendees")
+        }
+    }
+
+    increment = () => { 
+        this.setGlobal(state => ({
+            attendees: this.global.attendees+1,
+            risk: this.global.risk+1
+        }))
+        this.checkAttendees()
+    }
+    decrement = () => {
+        this.setGlobal(state => ({
+            attendees: this.global.attendees-1,
+            risk: this.global.risk-1
+        }))
+        this.checkAttendees()
+    }
 
     render(){
         return(
