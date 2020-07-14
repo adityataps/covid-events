@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import { home, homeSidebar } from "./components/screens/home"
-import { you, youSidebar } from "./components/screens/you"
+import { You, youSidebar } from "./components/screens/you"
 import { Attendees, attendeesSidebar } from "./components/screens/attendees"
 import { guestlist, guestlistSidebar } from "./components/screens/guestlist"
 import { Location, locationSidebar } from "./components/screens/location"
@@ -79,7 +79,7 @@ function App() {
 
             <Switch>
                 <Route path={"/"} exact component={home} />
-                <Route path={"/you"} exact component={you} />
+                <Route path={"/you"} exact component={You} />
                 <Route path={"/attendees"} exact component={Attendees} />
                 <Route path={"/guestlist"} exact component={guestlist} />
                 <Route path={"/location"} exact component={Location} />
