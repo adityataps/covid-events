@@ -36,7 +36,7 @@ export class App extends React.Component {
                         style={{
                             padding: "10px",
                             width: "40%",
-                            height: "500px",
+                            height: "550px",
                             background: "#f0f0f0"
                         }}
                     >
