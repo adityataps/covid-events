@@ -59,7 +59,7 @@ export class Summary extends React.Component {
                     <p>The event will take place at/in the {this.global.location}</p>
                     <p>The event will last around {this.global.duration} hours.</p>
                     <p>The event will have food: {this.global.food}</p>
-                    <p>The event will have PPE: <ul>{this.global.ppe}</ul></p>
+                    <p>The event will have PPE: {this.global.ppe}</p>
                     <p>The event will enforce social distancing: {this.global.distancing}</p>
                     <p></p>
                     <h2>The event risk factor is: {this.global.risk}</h2>

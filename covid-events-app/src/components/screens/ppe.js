@@ -29,6 +29,12 @@ const ContentSection = styled.p`
     top: 40px;
 `
 
+const FormSection = styled.form`
+    position: absolute;
+    top: 30%;
+    left: 25px;
+`
+
 const NextButton = styled.button`
     color: palevioletred;
     font-size: 1em;
@@ -83,72 +89,95 @@ const checkboxes = [
 
 export class Ppe extends React.Component {
     constructor(props){
-        super(props);
-        this.state = {
-             page: 'ppe',
-             checkedItems: new Map()
-        };
-
-        this.handleChange = this.handleChange.bind(this);
-    }
+            super(props);
+            this.state = {
+                page: "ppe",
+                selectedOption: this.global.ppe
+            };
+        }
 
 
-    handleChange(e) {
-        const item = e.target.name;
-        const isChecked = e.target.checked;
-        this.setState(prevState => ({ checkedItems: prevState.checkedItems.set(item, isChecked) }));
-      }
+        handleChange = (event) => {
+            if(this.global.ppe === 'Masks')
+            {
+                this.setGlobal({risk: this.global.risk + 5});
+            } else if(this.global.ppe === 'Gloves'){
+                this.setGlobal({risk: this.global.risk + 2});
+            } else if(this.global.ppe === 'Hand Sanitizer'){
+                this.setGlobal({risk: this.global.risk + 3});
+            } else if(this.global.ppe === 'Alcohol Wipes'){
+                this.setGlobal({risk: this.global.risk + 3});
+            } else if(this.global.ppe === 'Full PPE Suit'){
+                this.setGlobal({risk: this.global.risk + 7});
+            } else {
+                this.setGlobal({risk: this.global.risk - 0});
+            }
+            this.setState({selectedOption: event.target.value});
+            this.setGlobal({ppe: event.target.value})
+            if(this.global.ppe === 'Masks')
+            {
+                this.setGlobal({risk: this.global.risk - 5});
+            } else if(this.global.ppe === 'Gloves'){
+                this.setGlobal({risk: this.global.risk - 2});
+            } else if(this.global.ppe === 'Hand Sanitizer'){
+                this.setGlobal({risk: this.global.risk - 3});
+            } else if(this.global.ppe === 'Alcohol Wipes'){
+                this.setGlobal({risk: this.global.risk - 3});
+            } else if(this.global.ppe === 'Full PPE Suit'){
+                this.setGlobal({risk: this.global.risk - 7});
+            } else {
+                this.setGlobal({risk: this.global.risk - 0});
+            }
+        }
 
-    handleCheckboxChange = changeEvent => {
-        console.log('Hi2')
-        const { name } = changeEvent.target;
-
-        this.setState(prevState => ({
-          checkboxes: {
-            ...prevState.checkboxes,
-            [name]: !prevState.checkboxes[name]
-          }
-        }));
-      };
-
-    handleFormSubmit = formSubmitEvent => {
-        formSubmitEvent.preventDefault();
-
-        Object.keys(this.state.checkboxes)
-          .filter(checkbox => this.state.checkboxes[checkbox])
-          .forEach(checkbox => {
-            console.log(checkbox, "is selected.");
-          });
-      };
-
-    render(){
-        return(
-            this.setGlobal({progress: 6*100/8}),
-            <React.Fragment>
+        render(){
+            return(
+                this.setGlobal({progress: 6*100/8}),
                 <Container>
-                    <TitleBar>Is there any PPE gear you are requiring? (Can select multiple answers)</TitleBar>
-                    <ContentSection>
-                        {
-                            checkboxes.map(item => (
-                            <p>
-                                <label key = {item.key}>
-                                    <Checkbox name={item.name} checked = {this.state.checkedItems.get(item.name)} onChange = {this.handleChange} />
-                                    {item.name}
-                                </label>
-                            </p>
-                            ))
-                        }
-                        <ul>{this.state.checkedItems}</ul>
-                    </ContentSection>
-                    <button type="submit" className="btn btn-primary">
-                      Save
-                    </button>
+                    <TitleBar>Is there any PPE gear you are requiring?</TitleBar>
+                    <FormSection>
+                        <div className="radio">
+                        <label>
+                            <input type="radio" value="Masks" checked={this.state.selectedOption === 'Masks'} onChange={this.handleChange}/>
+                            Masks
+                        </label>
+                        </div>
+                        <div className="radio">
+                        <label>
+                            <input type="radio" value="Gloves" checked={this.state.selectedOption === 'Gloves'} onChange={this.handleChange}/>
+                            Gloves
+                        </label>
+                        </div>
+                        <div className="radio">
+                        <label>
+                            <input type="radio" value="Hand Sanitizer" checked={this.state.selectedOption === 'Hand Sanitizer'} onChange={this.handleChange}/>
+                            Hand Sanitizer
+                        </label>
+                        </div>
+                        <div className="radio">
+                        <label>
+                            <input type="radio" value="Alcohol Wipes" checked={this.state.selectedOption === 'Alcohol Wipes'} onChange={this.handleChange}/>
+                            Alcohol Wipes
+                        </label>
+                        </div>
+                        <div className="radio">
+                        <label>
+                            <input type="radio" value="Full PPE Suit" checked={this.state.selectedOption === 'Full PPE Suit'} onChange={this.handleChange}/>
+                            Full PPE Suit
+                        </label>
+                        </div>
+                        <div className="radio">
+                        <label>
+                            <input type="radio" value="None" checked={this.state.selectedOption === 'None'} onChange={this.handleChange}/>
+                            None
+                        </label>
+                        </div>
+                    </FormSection>
                     <Link to={"/distancing"}><NextButton>Next</NextButton></Link>
                     <Link to={"/food"}><PrevButton>Prev</PrevButton></Link>
                 </Container>
-            </React.Fragment>
-        );
-    }
+            );
+        }
 }
 
 export const ppeSidebar = () => {
