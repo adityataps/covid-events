@@ -17,7 +17,7 @@ const Container = styled.div`
 `;
 
 const Progress = styled.div`
-    top: 93.5%;
+    top: 597px;
     left: 50%;
     background-color: #d8d8d8;
     border-radius: 20px;

@@ -21,7 +21,7 @@ const ContentSection = styled.p`
     color: white;
     font-size: 10px;
     position: relative;
-    width: 100%;
+    width: 98%;
     display:block;
     padding-left: 10px;
     padding-right: 10px;
