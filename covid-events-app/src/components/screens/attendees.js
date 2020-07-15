@@ -90,7 +90,7 @@ export class Attendees extends React.Component {
         }
 
         return(
-            this.setGlobal({progress: 1*100/8}),
+            this.setGlobal({progress: 2*100/9}),
             <Container>
                 <TitleBar>How many people will attend?</TitleBar>
                 <ContentSection>

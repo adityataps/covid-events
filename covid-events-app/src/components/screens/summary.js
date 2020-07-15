@@ -103,7 +103,7 @@ export class Summary extends React.Component {
     }
 
     calcluateSocialDistancingWords = () => {
-        if(this.global.distancing){
+        if(this.global.distancing === "Yes"){
             return socialDistancingTrueWords;
         }
         else{
