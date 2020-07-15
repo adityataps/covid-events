@@ -58,6 +58,11 @@ const foodYesIWords = "You will be providing all food."
 const foodYesThemWords = "All attendees are bringing their own food."
 const foodNoWords = "You will not be providing food."
 
+const riskGoodWords = "Your event is low risk. Good job! You have a good idea about what precautions to take and what to watch out for. We hope your event goes well."
+const riskMediumWords = "Your event is somewhat risky. Please consider adjusting some of your plans so that your event can be safer. You can go back to previous pages and adjust your plans, then come back here and see what effects your changes have on the risk factor."
+const riskBadWords = "Your event is high risk. You should consider changing your plans to make your event safer. You can go back to previous pages and adjust your plans, then come back here and see what effects your changes have on the risk factor."
+
+
 export class Summary extends React.Component {
     constructor(props){
         super(props);
