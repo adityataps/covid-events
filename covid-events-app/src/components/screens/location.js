@@ -127,7 +127,7 @@ export class Location extends React.Component {
         }
 
         return(
-            this.setGlobal({progress: 3*100/8}),
+            this.setGlobal({progress: 4*100/9}),
             <Container>
                 <TitleBar>What kind of place would you host your event at?</TitleBar>
                 <FormSection>

@@ -83,7 +83,7 @@ export class You extends React.Component {
 
         return(
             // this.setGlobal({visitedYou: true}),
-            this.setGlobal({progress: 0*100/8}),
+            this.setGlobal({progress: 1*100/9}),
             <Container>
                 <TitleBar>Stuff about you here!</TitleBar>
                 <ContentSection>

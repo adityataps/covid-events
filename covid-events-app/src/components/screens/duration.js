@@ -78,7 +78,7 @@ export class Duration extends React.Component {
         }
 
         return (
-            this.setGlobal({progress: 4*100/8}),
+            this.setGlobal({progress: 5*100/9}),
             <React.Fragment>
                 <Container>
                     <TitleBar>How long will the event last?</TitleBar>

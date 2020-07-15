@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useGlobal } from "reactn";
 import styled from 'styled-components';
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 
@@ -48,6 +48,7 @@ export class Home extends React.Component {
     }
 
     render(){
+        this.setGlobal({progress: 0*100/9});
         return(
             <Container>
                 <TitleBar>Welcome To Covid-Events!</TitleBar>

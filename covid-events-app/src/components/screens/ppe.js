@@ -138,7 +138,7 @@ export class Ppe extends React.Component {
             this.setGlobal({visitedPPE: true});
         }
         return(
-            this.setGlobal({progress: 6*100/8}),
+            this.setGlobal({progress: 7*100/9}),
             <Container>
                 <TitleBar>Is there any PPE gear you are requiring?</TitleBar>
                 <FormSection>

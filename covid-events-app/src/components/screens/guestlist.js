@@ -136,7 +136,7 @@ export class Guestlist extends React.Component {
         }
 
         return(
-            this.setGlobal({progress: 2*100/8}),
+            this.setGlobal({progress: 3*100/9}),
             <Container>
                 <TitleBar>Who are you inviting?</TitleBar>
                 <ContentSection>

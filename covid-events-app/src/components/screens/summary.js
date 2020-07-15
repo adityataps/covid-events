@@ -19,7 +19,7 @@ const TitleBar = styled.h1`
 const ContentSection = styled.p`
     text-align: left;
     color: white;
-    font-size: 20px;
+    font-size: 18px;
     position: absolute;
     height: 90%;
     padding-left: 10px;
@@ -99,6 +99,19 @@ export class Summary extends React.Component {
         return foodNoWords;
     }
 
+    claculateRiskFinalWords = () => {
+        let totalRisk = this.calculateTotalRisk()
+        if (totalRisk <= 15){
+            return riskGoodWords;
+        }
+        else if(totalRisk <= 25){
+            return riskMediumWords;
+        }
+        else{
+            return riskBadWords
+        }
+    }
+
     render(){
 
         if (!this.global.visitedSummary) {
@@ -120,6 +133,7 @@ export class Summary extends React.Component {
                     <p>{this.calcluateSocialDistancingWords()} Risk Factor: {this.global.distancingRisk}</p>
                     <p></p>
                     <h2>The event risk factor is: {this.calculateTotalRisk()}</h2>
+                    <p>{this.claculateRiskFinalWords()}</p>
                 </ContentSection>
         		<Link to={"/distancing"}><PrevButton>Prev</PrevButton></Link>
             </Container>
