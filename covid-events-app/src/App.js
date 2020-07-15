@@ -16,7 +16,31 @@ import { previewinvite } from "./components/screens/previewinvite";
 import Notifications from './components/Notifications'
 import ProgressBar from './components/ProgressBar'
 
+
+let visitedYou = false;
+let visitedAttendees = false;
+let visitedGuestlist = false;
+let visitedLocation = false;
+let visitedDuration = false;
+let visitedFood = false;
+let visitedPPE = false;
+let visitedDistancing = false;
+let visitedSummary = false;
+// export {visitedYou};
+// export {visitedAttendees};
+// export {visitedGuestlist};
+// export {visitedLocation};
+// export {visitedDuration};
+// export {visitedFood};
+// export {visitedPPE};
+// export {visitedDistancing};
+// export {visitedSummary};
+
+
 function App() {
+
+
+
   return (
     <BrowserRouter>
 
@@ -25,57 +49,81 @@ function App() {
                 style={{
                     padding: "10px",
                     width: "40%",
+                    height: "500px",
                     background: "#f0f0f0"
                 }}
             >
+                <div style={{position: 'fixed', 'margin-top': '380px'}}>
+                    You are on:
+
+                    <Switch>
+                        <Route path={"/"} exact component={homeSidebar} />
+                        <Route path={"/you"} exact component={youSidebar} />
+                        <Route path={"/attendees"} exact component={attendeesSidebar} />
+                        <Route path={"/guestlist"} exact component={guestlistSidebar} />
+                        <Route path={"/location"} exact component={locationSidebar} />
+                        <Route path={"/duration"} exact component={durationSidebar} />
+                        <Route path={"/food"} exact component={foodSidebar} />
+                        <Route path={"/ppe"} exact component={ppeSidebar} />
+                        <Route path={"/distancing"} exact component={distancingSidebar} />
+                        <Route path={"/summary"} exact component={summarySidebar} />
+                        <Route path={"/"} render={() => <div>bruh</div>} />
+                    </Switch>
+                </div>
+
                 <ul className = "sidebar" style={{ listStyleType: "none", padding: 0 }}>
+
                     <li>
                         <Link to={"/"}>home</Link>
                     </li>
-                    <li>
-                        <Link to={"/you"}>you</Link>
-                    </li>
-                    <li>
-                        <Link to={"/attendees"}>attendees</Link>
-                    </li>
-                    <li>
-                        <Link to={"/guestlist"}>guest list</Link>
-                    </li>
-                    <li>
-                        <Link to={"/location"}>location</Link>
-                    </li>
-                    <li>
-                        <Link to={"/duration"}>duration</Link>
-                    </li>
-                    <li>
-                        <Link to={"/food"}>food</Link>
-                    </li>
-                    <li>
-                        <Link to={"/ppe"}>ppe</Link>
-                    </li>
-                    <li>
-                        <Link to={"/distancing"}>distancing</Link>
-                    </li>
-                    <li>
-                        <Link to={"/summary"}>summary</Link>
-                    </li>
+                    {visitedYou &&
+                        <li>
+                            <Link to={"/you"}>you</Link>
+                        </li>
+                    }
+                    {visitedAttendees &&
+                        <li>
+                            <Link to={"/attendees"}>attendees</Link>
+                        </li>
+                    }
+                    {visitedGuestlist &&
+                        <li>
+                            <Link to={"/guestlist"}>guest list</Link>
+                        </li>
+                    }
+                    {visitedLocation &&
+                        <li>
+                            <Link to={"/location"}>location</Link>
+                        </li>
+                    }
+                    {visitedDuration &&
+                        <li>
+                            <Link to={"/duration"}>duration</Link>
+                        </li>
+                    }
+                    {visitedFood &&
+                        <li>
+                            <Link to={"/food"}>food</Link>
+                        </li>
+                    }
+                    {visitedPPE &&
+                        <li>
+                            <Link to={"/ppe"}>ppe</Link>
+                        </li>
+                    }
+                    {visitedDistancing &&
+                        <li>
+                            <Link to={"/distancing"}>distancing</Link>
+                        </li>
+                    }
+                    {visitedSummary &&
+                        <li>
+                            <Link to={"/summary"}>summary</Link>
+                        </li>
+                    }
+
                 </ul>
 
-                You are on:
-
-                <Switch>
-                    <Route path={"/"} exact component={homeSidebar} />
-                    <Route path={"/you"} exact component={youSidebar} />
-                    <Route path={"/attendees"} exact component={attendeesSidebar} />
-                    <Route path={"/guestlist"} exact component={guestlistSidebar} />
-                    <Route path={"/location"} exact component={locationSidebar} />
-                    <Route path={"/duration"} exact component={durationSidebar} />
-                    <Route path={"/food"} exact component={foodSidebar} />
-                    <Route path={"/ppe"} exact component={ppeSidebar} />
-                    <Route path={"/distancing"} exact component={distancingSidebar} />
-                    <Route path={"/summary"} exact component={summarySidebar} />
-                    <Route path={"/"} render={() => <div>bruh</div>} />
-                </Switch>
             </div>
 
             <Switch>

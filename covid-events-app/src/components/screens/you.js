@@ -1,6 +1,7 @@
 import React from "react";
 import styled from 'styled-components';
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+import {visitedYou} from "../../App";
 
 const Container = styled.div`
     background: #43b98b;
@@ -60,6 +61,9 @@ export class You extends React.Component {
     }
 
     render(){
+
+        // visitedYou = true;
+
         return(
             <Container>
                 <TitleBar>Stuff about you here!</TitleBar>
