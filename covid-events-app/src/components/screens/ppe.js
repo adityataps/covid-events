@@ -96,7 +96,6 @@ export class Ppe extends React.Component {
             };
         }
 
-<<<<<<< HEAD
 
         handleChange = (event) => {
             if(this.global.ppe === 'Masks')
