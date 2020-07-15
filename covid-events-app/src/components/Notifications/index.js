@@ -10,10 +10,11 @@ const Container = styled.div`
     float: right;
     top: ${props => props.top}%;
     right: 0%;
-    height: 100%;
+    height: 78%;
     width: 10%;
     z-index: 999;
     transition: top 1.5s ease;
+    font-size: small;
 `;
 
 const Button = styled.button`

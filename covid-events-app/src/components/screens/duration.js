@@ -13,7 +13,7 @@ const Container = styled.div`
 const TitleBar = styled.h1`
     text-align: center;
     color: white;
-    font-size: 15px;
+    font-size: 20px;
     position: absolute;
     left: 10px;
     top: 0px;
@@ -36,7 +36,7 @@ const NextButton = styled.button`
     padding: 0.25em 1em;
     border: 2px solid palevioletred;
     border-radius: 3px;
-    bottom: 0;
+    bottom: -88px;
     right: 0;
     position: absolute;
 `;
@@ -48,7 +48,7 @@ const PrevButton = styled.button`
     padding: 0.25em 1em;
     border: 2px solid palevioletred;
     border-radius: 3px;
-    bottom: 0;
+    bottom: -88px;
     left: 0;
     position: absolute;
 `;
@@ -72,8 +72,13 @@ export class Duration extends React.Component {
 
     //setGlobal({progress: (4*100/8 >= global.progress) ? 4*100/8 : global.progress});
     render(){
+
+        if (!this.global.visitedDuration) {
+            this.setGlobal({visitedDuration: true});
+        }
+
         return (
-            this.setGlobal({progress: 4*100/8}),
+            this.setGlobal({progress: 5*100/9}),
             <React.Fragment>
                 <Container>
                     <TitleBar>How long will the event last?</TitleBar>

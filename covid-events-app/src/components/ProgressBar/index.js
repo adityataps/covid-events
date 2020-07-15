@@ -17,14 +17,14 @@ const Container = styled.div`
 `;
 
 const Progress = styled.div`
-    top: 82%;
-    right: 20%;
+    top: 597px;
+    left: 50%;
     background-color: #d8d8d8;
     border-radius: 20px;
     position: absolute;
     margin: 15px 0;
     height: 30px;
-    width: 300px;
+    width: 33%;
 `;
 
 const ProgressDone = styled.div`

@@ -34,7 +34,7 @@ const PrevButton = styled.button`
     padding: 0.25em 1em;
     border: 2px solid palevioletred;
     border-radius: 3px;
-    bottom: 0;
+    bottom: -88px;;
     left: 0;
     position: absolute;
 `;

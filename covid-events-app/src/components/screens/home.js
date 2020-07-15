@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useGlobal } from "reactn";
 import styled from 'styled-components';
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 
@@ -11,7 +11,7 @@ const Container = styled.div`
 const TitleBar = styled.h1`
     text-align: center;
     color: white;
-    font-size: 15px;
+    font-size: 20px;
     position: absolute;
     left: 10px;
     top: 0px;
@@ -34,7 +34,7 @@ const NextButton = styled.button`
     padding: 0.25em 1em;
     border: 2px solid palevioletred;
     border-radius: 3px;
-    bottom: 0;
+    bottom: -88px;
     right: 0;
     position: absolute;
 `;
@@ -48,6 +48,7 @@ export class Home extends React.Component {
     }
 
     render(){
+        this.setGlobal({progress: 0*100/9});
         return(
             <Container>
                 <TitleBar>Welcome To Covid-Events!</TitleBar>
