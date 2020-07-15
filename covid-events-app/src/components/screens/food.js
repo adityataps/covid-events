@@ -104,6 +104,11 @@ export class Food extends React.Component {
     }
 
     render(){
+
+        if (!this.global.visitedFood) {
+            this.setGlobal({visitedFood: true});
+        }
+
         return(
             this.setGlobal({progress: 5*100/8}),
             <Container>

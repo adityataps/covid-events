@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import { App } from './App';
 import * as serviceWorker from './serviceWorker';
 import { setGlobal } from 'reactn';
 
@@ -23,7 +23,17 @@ setGlobal({
     duration: 0,
     food: 'None',
     ppe: 'None',
-    distancing: 'None'
+    distancing: 'None',
+
+    visitedYou: false,
+    visitedAttendees: false,
+    visitedGuestlist: false,
+    visitedLocation: false,
+    visitedDuration: false,
+    visitedFood: false,
+    visitedPPE: false,
+    visitedDistancing: false,
+    visitedSummary: false
 });
 
 ReactDOM.render(

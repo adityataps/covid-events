@@ -121,6 +121,11 @@ export class Location extends React.Component {
         }
     }
     render(){
+
+        if (!this.global.visitedLocation) {
+            this.setGlobal({visitedLocation: true});
+        }
+
         return(
             this.setGlobal({progress: 3*100/8}),
             <Container>

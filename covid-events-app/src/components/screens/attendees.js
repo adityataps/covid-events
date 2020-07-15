@@ -84,6 +84,11 @@ export class Attendees extends React.Component {
     }
 
     render(){
+
+        if (!this.global.visitedAttendees) {
+            this.setGlobal({visitedAttendees: true});
+        }
+
         return(
             this.setGlobal({progress: 1*100/8}),
             <Container>

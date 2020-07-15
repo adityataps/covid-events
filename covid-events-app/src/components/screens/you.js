@@ -1,7 +1,8 @@
 import React, { useGlobal } from "reactn";
 import styled from 'styled-components';
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
-import { notify } from "../Notifications"
+import {visitedYou} from "../../App";
+import { notify } from "../Notifications";
 
 const Container = styled.div`
     background: #43b98b;
@@ -75,7 +76,13 @@ export class You extends React.Component {
         }
     }
     render(){
+
+        if (!this.global.visitedYou) {
+            this.setGlobal({visitedYou: true})
+        }
+
         return(
+            // this.setGlobal({visitedYou: true}),
             this.setGlobal({progress: 0*100/8}),
             <Container>
                 <TitleBar>Stuff about you here!</TitleBar>

@@ -72,6 +72,11 @@ export class Duration extends React.Component {
 
     //setGlobal({progress: (4*100/8 >= global.progress) ? 4*100/8 : global.progress});
     render(){
+
+        if (!this.global.visitedDuration) {
+            this.setGlobal({visitedDuration: true});
+        }
+
         return (
             this.setGlobal({progress: 4*100/8}),
             <React.Fragment>
