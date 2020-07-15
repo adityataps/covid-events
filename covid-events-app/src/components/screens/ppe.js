@@ -55,7 +55,7 @@ export class Ppe extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            page: ppe
+            page: 'ppe'
         };
     }
 
@@ -78,8 +78,3 @@ export const ppeSidebar = () => {
     );
 };
 
-export const ppe = () => {
-    return(
-        <div>ppepage</div>
-    );
-};

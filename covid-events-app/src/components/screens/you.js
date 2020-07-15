@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useGlobal } from "reactn";
 import styled from 'styled-components';
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import {visitedYou} from "../../App";
@@ -56,21 +56,31 @@ export class You extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            page: you
+            page: 'you'
         };
     }
-
+    updateName = (e) => {
+        this.setGlobal({name: e.target.value});
+    }
+    updateAge = (e) => {
+        this.setGlobal({age: e.target.value});
+    }
     render(){
 
         // visitedYou = true;
 
         return(
+            this.setGlobal({progress: 0*100/8}),
             <Container>
                 <TitleBar>Stuff about you here!</TitleBar>
-                <ContentSection>Stuff about you here!
+                <ContentSection>
+                    Enter your name: <input type = "text" value = {this.global.name}
+                        onChange = {this.updateName} />
+                    Enter your age: <input type = "text" value = {this.global.age}
+                        onChange = {this.updateAge} />
                 </ContentSection>
                 <Link to={"/attendees"}><NextButton>Next</NextButton></Link>
-		<Link to={"/"}><PrevButton>Prev</PrevButton></Link>
+		        <Link to={"/"}><PrevButton>Prev</PrevButton></Link>
             </Container>
         );
     }

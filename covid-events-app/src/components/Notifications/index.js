@@ -44,7 +44,7 @@ export default class Notification extends React.Component {
     }
 
     onShow = (myText) => {
-        if(this.top == 0 ){
+        if(this.top === 0 ){
             setTimeout(() => {
                 this.setState({
                     top: -110
@@ -70,7 +70,6 @@ export default class Notification extends React.Component {
     render(){
         return(
             <React.Fragment>
-                <button onClick={() => notify("Hi I'm a notification!")}>Click me for notification</button>
                 <Container id={this.props.id} top={this.state.top} >
                     <Button onClick={this.closeNotification}>✖️</Button>
                     {this.state.text}

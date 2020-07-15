@@ -1,7 +1,7 @@
 //https://codepen.io/FlorinPop17/pen/yLyzmLZ
 
-import React from 'react';
 import styled from 'styled-components';
+import React, { useGlobal } from "reactn";
 
 const Container = styled.div`
     background-color: #bd4040;
@@ -15,10 +15,13 @@ const Container = styled.div`
     height: 100%
     width: 10%
 `;
+
 const Progress = styled.div`
+    top: 82%;
+    right: 20%;
     background-color: #d8d8d8;
     border-radius: 20px;
-    position: relative;
+    position: absolute;
     margin: 15px 0;
     height: 30px;
     width: 300px;
@@ -46,15 +49,6 @@ export default class ProgressBar extends React.Component {
 
     constructor(props){
         super(props);
-        this.state = {
-            progress: 0
-        };
-    }
-    
-    updateProgress = (newProgress) => {
-        this.setState({
-            progress: newProgress
-        })
     }
 
     onShow = () => {
@@ -66,14 +60,11 @@ export default class ProgressBar extends React.Component {
     // }
 
     render(){
-        console.log("Calling ProgressBar's render method with progress of " + this.state.progress)
         return(
             <React.Fragment>
                  <Progress id={this.props.id} >
-                     <ProgressDone width={this.state.progress}></ProgressDone>
-                     Progress Bar
+                     <ProgressDone width={this.global.progress}></ProgressDone>
                  </Progress>
-                 <Button onClick={() => this.updateProgress(100)}>Click me to fill progress bar</Button>
             </React.Fragment>
         );
     }

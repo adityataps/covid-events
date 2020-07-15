@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useGlobal } from "reactn";
 import styled from 'styled-components';
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 
@@ -61,13 +61,30 @@ export class Summary extends React.Component {
         };
     }
 
+    calculateTotalRisk = () => {
+        let totalRisk = this.global.attendeesRisk + this.global.distancingRisk
+        + this.global.durationRisk + this.global.foodRisk + this.global.locationRisk; 
+        return totalRisk
+    }
+
     render(){
         return(
+            this.setGlobal({progress: 100}),
             <Container>
-                <TitleBar>Stuff about summary here!</TitleBar>
-                <ContentSection>Stuff about summary here!
+                <TitleBar>The summary of the event:</TitleBar>
+                <ContentSection>
+                    <p>The host name is: {this.global.name}</p>
+                    <p>The host age is: {this.global.age} years old</p>
+                    <p>The attendee count is: {this.global.attendees} people. Risk factor: {this.global.attendeesRisk}</p>
+                    <p>The event will take place at/in the {this.global.location}. Risk factor: {this.global.locationRisk}</p>
+                    <p>The event will last around {this.global.duration} hours. Risk factor: {this.global.durationRisk}</p>
+                    <p>The event will have food: {this.global.food}. Risk Factor: {this.global.foodRisk}</p>
+                    <p>The event will have PPE: {this.global.ppe}</p>
+                    <p>The event will enforce social distancing: {this.global.distancing}. Risk Factor: {this.global.distancingRisk}</p>
+                    <p></p>
+                    <h2>The event risk factor is: {this.calculateTotalRisk()}</h2>
                 </ContentSection>
-		<Link to={"/distancing"}><PrevButton>Prev</PrevButton></Link>
+        		<Link to={"/distancing"}><PrevButton>Prev</PrevButton></Link>
             </Container>
         );
     }
@@ -81,31 +98,7 @@ export const summarySidebar = () => {
 
 export const summary = () => {
     return(
-        <div className={"container"}>
-            <h1 className={"titleBar"}>
-                Summary
-            </h1>
+        <div>summarypage</div>
 
-            <Link to={"/previewinvite"}>
-                <Button className={"button"} style={{right:'-8%'}}>
-                    <span>Preview Invite</span>
-                </Button>
-            </Link>
-
-            {/*<Link to={"/summary"}>*/}
-                <Button className={"button"} style={{right:'-8%'}}>
-                    <span>Send Invites</span>
-                </Button>
-            {/*</Link>*/}
-
-            {/*<Link to={"/summary">*/}
-                <Button className={"button"} style={{right:'-8%',
-                                                    color: 'palevioletred',
-                                                    border: '2px solid palevioletred'}}>
-                    <span>Cancel</span>
-                </Button>
-            {/*</Link>*/}
-
-        </div>
     );
-};
+}
