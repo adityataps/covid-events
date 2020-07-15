@@ -74,6 +74,9 @@ export class You extends React.Component {
             }
             this.setGlobal({youRisk: 8})
         }
+        else{
+            this.setGlobal({youRisk: 0})
+        }
     }
     render(){
 
