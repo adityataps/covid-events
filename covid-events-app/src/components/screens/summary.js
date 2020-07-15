@@ -11,7 +11,7 @@ const Container = styled.div`
 const TitleBar = styled.h1`
     text-align: center;
     color: white;
-    font-size: 15px;
+    font-size: 20px;
     position: absolute;
     left: 10px;
     top: 0px;
@@ -34,7 +34,7 @@ const PrevButton = styled.button`
     padding: 0.25em 1em;
     border: 2px solid palevioletred;
     border-radius: 3px;
-    bottom: 0;
+    bottom: -88px;
     left: 0;
     position: absolute;
 `;
@@ -51,7 +51,12 @@ const Button = styled.button`
     position: absolute;
 `;
 
+const socialDistancingTrueWords = "You will enforce social distancing rules."
+const socialDistancingFalseWords = "You will not enforce social distancing rules."
 
+const foodYesIWords = "You will be providing all food."
+const foodYesThemWords = "All attendees are bringing their own food."
+const foodNoWords = "You will not be providing food."
 
 export class Summary extends React.Component {
     constructor(props){
@@ -62,9 +67,31 @@ export class Summary extends React.Component {
     }
 
     calculateTotalRisk = () => {
-        let totalRisk = this.global.attendeesRisk + this.global.distancingRisk
+        let totalRisk = this.global.youRisk + this.global.attendeesRisk + this.global.distancingRisk
         + this.global.durationRisk + this.global.foodRisk + this.global.locationRisk; 
         return totalRisk
+    }
+
+    calcluateSocialDistancingWords = () => {
+        if(this.global.distancing){
+            return socialDistancingTrueWords;
+        }
+        else{
+            return socialDistancingFalseWords;
+        }
+    }
+
+    calcluateFoodWords = () => {
+        if(this.global.food === 'Yes, provided by me'){
+            return foodYesIWords;
+        }
+        else if(this.global.food === 'Yes, provided by others'){
+            return foodYesThemWords;
+        }
+        else if(this.global.food === 'No'){
+            return foodNoWords;
+        }
+        return foodNoWords;
     }
 
     render(){
@@ -78,14 +105,14 @@ export class Summary extends React.Component {
             <Container>
                 <TitleBar>The summary of the event:</TitleBar>
                 <ContentSection>
-                    <p>The host name is: {this.global.name}</p>
-                    <p>The host age is: {this.global.age} years old</p>
-                    <p>The attendee count is: {this.global.attendees} people. Risk factor: {this.global.attendeesRisk}</p>
-                    <p>The event will take place at/in the {this.global.location}. Risk factor: {this.global.locationRisk}</p>
-                    <p>The event will last around {this.global.duration} hours. Risk factor: {this.global.durationRisk}</p>
-                    <p>The event will have food: {this.global.food}. Risk Factor: {this.global.foodRisk}</p>
+                    <p>Ok great job {this.global.name}! Now let's check your score and see how you did.</p>
+                    <p>You are {this.global.age} years old. Risk factor: {this.global.youRisk}</p>
+                    <p>You are inviting {this.global.attendees} people. Risk factor: {this.global.attendeesRisk}</p>
+                    <p>You are hosting the event at {this.global.location}. Risk factor: {this.global.locationRisk}</p>
+                    <p>You're holding the event for {this.global.duration} hours. Risk factor: {this.global.durationRisk}</p>
+                    <p>{this.calcluateFoodWords()} Risk Factor: {this.global.foodRisk}</p>
                     <p>The event will have PPE: {this.global.ppe}</p>
-                    <p>The event will enforce social distancing: {this.global.distancing}. Risk Factor: {this.global.distancingRisk}</p>
+                    <p>{this.calcluateSocialDistancingWords()} Risk Factor: {this.global.distancingRisk}</p>
                     <p></p>
                     <h2>The event risk factor is: {this.calculateTotalRisk()}</h2>
                 </ContentSection>

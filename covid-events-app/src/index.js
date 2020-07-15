@@ -10,6 +10,7 @@ setGlobal({
     summaryCheck: false,
     progress: 0,
     risk: 0,
+    youRisk: 0,
     attendeesRisk: 0,
     distancingRisk: 0,
     durationRisk: 0,

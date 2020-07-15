@@ -11,7 +11,7 @@ const Container = styled.div`
 const TitleBar = styled.h1`
     text-align: center;
     color: white;
-    font-size: 15px;
+    font-size: 20px;
     position: absolute;
     left: 10px;
     top: 0px;
@@ -40,9 +40,13 @@ const NextButton = styled.button`
     padding: 0.25em 1em;
     border: 2px solid palevioletred;
     border-radius: 3px;
-    bottom: 0;
+    bottom: -88px;
     right: 0;
     position: absolute;
+`;
+
+const Selection = styled.div`
+    margin: 40px 0px;
 `;
 
 const PrevButton = styled.button`
@@ -52,7 +56,7 @@ const PrevButton = styled.button`
     padding: 0.25em 1em;
     border: 2px solid palevioletred;
     border-radius: 3px;
-    bottom: 0;
+    bottom: -88px;
     left: 0;
     position: absolute;
 `;
@@ -97,20 +101,20 @@ export class Distancing extends React.Component {
         return(
             this.setGlobal({progress: 7*100/8}),
             <Container>
-                <TitleBar>Will you be enforcing social distancing?</TitleBar>
+                <TitleBar>CDC recommends that contact be keeped at a minimum distance of 6 feet. Will you be enforcing social distancing rules?</TitleBar>
                 <FormSection>
-                    <div className="radio">
+                    <Selection className="radio">
                     <label>
                         <input type="radio" value="Yes" checked={this.state.selectedOption === 'Yes'} onChange={this.handleChange}/>
                         Yes.
                     </label>
-                    </div>
-                    <div className="radio">
+                    </Selection>
+                    <Selection className="radio">
                     <label>
                         <input type="radio" value="No" checked={this.state.selectedOption === 'No'} onChange={this.handleChange}/>
                         No.
                     </label>
-                    </div>
+                    </Selection>
                 </FormSection>
                 <Link to={"/summary"}><NextButton>Next</NextButton></Link>
                 <Link to={"/ppe"}><PrevButton>Prev</PrevButton></Link>
