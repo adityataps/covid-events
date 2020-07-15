@@ -13,6 +13,7 @@ import { Ppe, ppe, ppeSidebar } from "./components/screens/ppe"
 import { Distancing, distancing, distancingSidebar } from "./components/screens/distancing"
 import { Summary,summary, summarySidebar } from "./components/screens/summary"
 import { previewinvite } from "./components/screens/previewinvite";
+import { Virtual, virtualSidebar } from "./components/screens/virtual"
 import Notifications from './components/Notifications'
 import ProgressBar from './components/ProgressBar'
 
@@ -59,6 +60,7 @@ export class App extends React.Component {
                                     <Route path={"/ppe"} exact component={ppeSidebar}/>
                                     <Route path={"/distancing"} exact component={distancingSidebar}/>
                                     <Route path={"/summary"} exact component={summarySidebar}/>
+                                    <Route path={"/virtual"} exact component={virtualSidebar}/>
                                     <Route path={"/"} render={() => <div>bruh</div>}/>
                                 </Switch>
                             </div>
@@ -111,6 +113,9 @@ export class App extends React.Component {
                                 <Link to={"/summary"}>summary</Link>
                             </li>
                             }
+                            <li>
+                                <Link to={"/virtual"}>virtual</Link>
+                            </li>
 
                         </ul>
 
@@ -127,6 +132,7 @@ export class App extends React.Component {
                         <Route path={"/ppe"} exact component={Ppe}/>
                         <Route path={"/distancing"} exact component={Distancing}/>
                         <Route path={"/summary"} exact component={Summary}/>
+                        <Route path={"/virtual"} exact component={Virtual}/>
                         <Route path={"/previewinvite"} exact component={previewinvite}/>
                         <Route path={"/"} render={() => <div>404</div>}/>
                     </Switch>

@@ -39,6 +39,31 @@ const PrevButton = styled.button`
     position: absolute;
 `;
 
+const NextButton = styled.button`
+    color: palevioletred;
+    font-size: 1em;
+    margin: 1em;
+    padding: 0.25em 1em;
+    border: 2px solid palevioletred;
+    border-radius: 3px;
+    bottom: -88px;
+    right: 0;
+    position: absolute;
+`;
+
+const SendInvite = styled.button`
+    color: palevioletred;
+    font-size: 1em;
+    margin: 1em;
+    padding: 0.25em 1em;
+    border: 2px solid palevioletred;
+    border-radius: 3px;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    position: absolute;
+`;
+
 const Button = styled.button`
     color: palevioletred;
     font-size: 1em;
@@ -78,7 +103,7 @@ export class Summary extends React.Component {
     }
 
     calcluateSocialDistancingWords = () => {
-        if(this.global.distancing){
+        if(this.global.distancing === "Yes"){
             return socialDistancingTrueWords;
         }
         else{
@@ -135,6 +160,8 @@ export class Summary extends React.Component {
                     <h2>The event risk factor is: {this.calculateTotalRisk()}</h2>
                     <p>{this.claculateRiskFinalWords()}</p>
                 </ContentSection>
+			<SendInvite>Preview and Send Invite</SendInvite>
+        		<Link to={"/virtual"}><NextButton>Proceed To Virtual Event Ideas</NextButton></Link>
         		<Link to={"/distancing"}><PrevButton>Prev</PrevButton></Link>
             </Container>
         );
