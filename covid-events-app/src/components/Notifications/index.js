@@ -14,6 +14,7 @@ const Container = styled.div`
     width: 10%;
     z-index: 999;
     transition: top 1.5s ease;
+    font-size: small;
 `;
 
 const Button = styled.button`

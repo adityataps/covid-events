@@ -1,6 +1,7 @@
 import React, { useGlobal } from "reactn";
 import styled from 'styled-components';
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+import { notify } from "../Notifications"
 
 const Container = styled.div`
     background: #43b98b;
@@ -11,7 +12,7 @@ const Container = styled.div`
 const TitleBar = styled.h1`
     text-align: center;
     color: white;
-    font-size: 15px;
+    font-size: 20px;
     position: absolute;
     left: 10px;
     top: 0px;
@@ -20,8 +21,9 @@ const ContentSection = styled.p`
     text-align: left;
     color: white;
     font-size: 20px;
-    position: absolute;
-    height: 90%;
+    position: relative;
+    width: 100%;
+    display:block;
     padding-left: 10px;
     padding-right: 10px;
     top: 40px;
@@ -34,7 +36,7 @@ const NextButton = styled.button`
     padding: 0.25em 1em;
     border: 2px solid palevioletred;
     border-radius: 3px;
-    bottom: 0;
+    bottom: -88px;
     right: 0;
     position: absolute;
 `;
@@ -46,7 +48,7 @@ const PrevButton = styled.button`
     padding: 0.25em 1em;
     border: 2px solid palevioletred;
     border-radius: 3px;
-    bottom: 0;
+    bottom: -88px;
     left: 0;
     position: absolute;
 `;
@@ -55,7 +57,8 @@ export class You extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            page: 'you'
+            page: 'you',
+            ageCheckedOnce: false
         };
     }
     updateName = (e) => {
@@ -63,6 +66,13 @@ export class You extends React.Component {
     }
     updateAge = (e) => {
         this.setGlobal({age: e.target.value});
+        if(this.global.age >= 65){
+            if(!this.state.ageCheckedOnce){
+                this.setState({ageCheckedOnce: true})
+                notify("You are above 65, and are classified an at risk individual. Considering avoiding close social contact if you can.");
+            }
+            this.setGlobal({youRisk: 8})
+        }
     }
     render(){
         return(
@@ -72,7 +82,9 @@ export class You extends React.Component {
                 <ContentSection>
                     Enter your name: <input type = "text" value = {this.global.name}
                         onChange = {this.updateName} />
-                    Enter your age: <input type = "text" value = {this.global.age}
+                </ContentSection>
+                <ContentSection>
+                Enter your age: <input type = "text" value = {this.global.age}
                         onChange = {this.updateAge} />
                 </ContentSection>
                 <Link to={"/attendees"}><NextButton>Next</NextButton></Link>
