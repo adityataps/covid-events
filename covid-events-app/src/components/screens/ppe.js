@@ -58,6 +58,11 @@ const PrevButton = styled.button`
     left: 0;
     position: absolute;
 `;
+
+const Selection = styled.div`
+    margin: 20px 0px;
+`
+
 const checkboxes = [
     {
         name: 'Masks',
@@ -93,124 +98,125 @@ export class Ppe extends React.Component {
         this.state = {
             page: 'ppe'
         };
+    }
 
-        handleChange = (event) => {
-            if(this.global.ppe === 'Masks')
-            {
-                this.setGlobal({risk: this.global.risk + 5});
-            } else if(this.global.ppe === 'Gloves'){
-                this.setGlobal({risk: this.global.risk + 2});
-            } else if(this.global.ppe === 'Hand Sanitizer'){
-                this.setGlobal({risk: this.global.risk + 3});
-            } else if(this.global.ppe === 'Alcohol Wipes'){
-                this.setGlobal({risk: this.global.risk + 3});
-            } else if(this.global.ppe === 'Full PPE Suit'){
-                this.setGlobal({risk: this.global.risk + 7});
-            } else {
-                this.setGlobal({risk: this.global.risk - 0});
-            }
-            this.setState({selectedOption: event.target.value});
-            this.setGlobal({ppe: event.target.value})
-            if(this.global.ppe === 'Masks')
-            {
-                this.setGlobal({risk: this.global.risk - 5});
-            } else if(this.global.ppe === 'Gloves'){
-                this.setGlobal({risk: this.global.risk - 2});
-            } else if(this.global.ppe === 'Hand Sanitizer'){
-                this.setGlobal({risk: this.global.risk - 3});
-            } else if(this.global.ppe === 'Alcohol Wipes'){
-                this.setGlobal({risk: this.global.risk - 3});
-            } else if(this.global.ppe === 'Full PPE Suit'){
-                this.setGlobal({risk: this.global.risk - 7});
-            } else {
-                this.setGlobal({risk: this.global.risk - 0});
-            }
+    handleChange = (event) => {
+        if(this.global.ppe === 'Masks')
+        {
+            this.setGlobal({risk: this.global.risk + 5});
+        } else if(this.global.ppe === 'Gloves'){
+            this.setGlobal({risk: this.global.risk + 2});
+        } else if(this.global.ppe === 'Hand Sanitizer'){
+            this.setGlobal({risk: this.global.risk + 3});
+        } else if(this.global.ppe === 'Alcohol Wipes'){
+            this.setGlobal({risk: this.global.risk + 3});
+        } else if(this.global.ppe === 'Full PPE Suit'){
+            this.setGlobal({risk: this.global.risk + 7});
+        } else {
+            this.setGlobal({risk: this.global.risk - 0});
         }
+        this.setState({selectedOption: event.target.value});
+        this.setGlobal({ppe: event.target.value})
+        if(this.global.ppe === 'Masks')
+        {
+            this.setGlobal({risk: this.global.risk - 5});
+        } else if(this.global.ppe === 'Gloves'){
+            this.setGlobal({risk: this.global.risk - 2});
+        } else if(this.global.ppe === 'Hand Sanitizer'){
+            this.setGlobal({risk: this.global.risk - 3});
+        } else if(this.global.ppe === 'Alcohol Wipes'){
+            this.setGlobal({risk: this.global.risk - 3});
+        } else if(this.global.ppe === 'Full PPE Suit'){
+            this.setGlobal({risk: this.global.risk - 7});
+        } else {
+            this.setGlobal({risk: this.global.risk - 0});
+        }
+    }
 
-        handleChange = (event) => {
-            if(this.global.ppe === 'Masks')
-            {
-                this.setGlobal({risk: this.global.risk + 5});
-            } else if(this.global.ppe === 'Gloves'){
-                this.setGlobal({risk: this.global.risk + 2});
-            } else if(this.global.ppe === 'Hand Sanitizer'){
-                this.setGlobal({risk: this.global.risk + 3});
-            } else if(this.global.ppe === 'Alcohol Wipes'){
-                this.setGlobal({risk: this.global.risk + 3});
-            } else if(this.global.ppe === 'Full PPE Suit'){
-                this.setGlobal({risk: this.global.risk + 7});
-            } else {
-                this.setGlobal({risk: this.global.risk - 0});
-            }
-            this.setState({selectedOption: event.target.value});
-            this.setGlobal({ppe: event.target.value})
-            if(this.global.ppe === 'Masks')
-            {
-                this.setGlobal({risk: this.global.risk - 5});
-            } else if(this.global.ppe === 'Gloves'){
-                this.setGlobal({risk: this.global.risk - 2});
-            } else if(this.global.ppe === 'Hand Sanitizer'){
-                this.setGlobal({risk: this.global.risk - 3});
-            } else if(this.global.ppe === 'Alcohol Wipes'){
-                this.setGlobal({risk: this.global.risk - 3});
-            } else if(this.global.ppe === 'Full PPE Suit'){
-                this.setGlobal({risk: this.global.risk - 7});
-            } else {
-                this.setGlobal({risk: this.global.risk - 0});
-            }
+    handleChange = (event) => {
+        if(this.global.ppe === 'Masks')
+        {
+            this.setGlobal({risk: this.global.risk + 5});
+        } else if(this.global.ppe === 'Gloves'){
+            this.setGlobal({risk: this.global.risk + 2});
+        } else if(this.global.ppe === 'Hand Sanitizer'){
+            this.setGlobal({risk: this.global.risk + 3});
+        } else if(this.global.ppe === 'Alcohol Wipes'){
+            this.setGlobal({risk: this.global.risk + 3});
+        } else if(this.global.ppe === 'Full PPE Suit'){
+            this.setGlobal({risk: this.global.risk + 7});
+        } else {
+            this.setGlobal({risk: this.global.risk - 0});
         }
+        this.setState({selectedOption: event.target.value});
+        this.setGlobal({ppe: event.target.value})
+        if(this.global.ppe === 'Masks')
+        {
+            this.setGlobal({risk: this.global.risk - 5});
+        } else if(this.global.ppe === 'Gloves'){
+            this.setGlobal({risk: this.global.risk - 2});
+        } else if(this.global.ppe === 'Hand Sanitizer'){
+            this.setGlobal({risk: this.global.risk - 3});
+        } else if(this.global.ppe === 'Alcohol Wipes'){
+            this.setGlobal({risk: this.global.risk - 3});
+        } else if(this.global.ppe === 'Full PPE Suit'){
+            this.setGlobal({risk: this.global.risk - 7});
+        } else {
+            this.setGlobal({risk: this.global.risk - 0});
+        }
+    };
 
-        render(){
-            if (!this.global.visitedPPE) {
-                this.setGlobal({visitedPPE: true});
-            }
-            return(
-                this.setGlobal({progress: 6*100/8}),
-                <Container>
-                    <TitleBar>Is there any PPE gear you are requiring?</TitleBar>
-                    <FormSection>
-                        <div className="radio">
-                        <label>
-                            <input type="radio" value="Masks" checked={this.state.selectedOption === 'Masks'} onChange={this.handleChange}/>
-                            Masks
-                        </label>
-                        </div>
-                        <div className="radio">
-                        <label>
-                            <input type="radio" value="Gloves" checked={this.state.selectedOption === 'Gloves'} onChange={this.handleChange}/>
-                            Gloves
-                        </label>
-                        </div>
-                        <div className="radio">
-                        <label>
-                            <input type="radio" value="Hand Sanitizer" checked={this.state.selectedOption === 'Hand Sanitizer'} onChange={this.handleChange}/>
-                            Hand Sanitizer
-                        </label>
-                        </div>
-                        <div className="radio">
-                        <label>
-                            <input type="radio" value="Alcohol Wipes" checked={this.state.selectedOption === 'Alcohol Wipes'} onChange={this.handleChange}/>
-                            Alcohol Wipes
-                        </label>
-                        </div>
-                        <div className="radio">
-                        <label>
-                            <input type="radio" value="Full PPE Suit" checked={this.state.selectedOption === 'Full PPE Suit'} onChange={this.handleChange}/>
-                            Full PPE Suit
-                        </label>
-                        </div>
-                        <div className="radio">
-                        <label>
-                            <input type="radio" value="None" checked={this.state.selectedOption === 'None'} onChange={this.handleChange}/>
-                            None
-                        </label>
-                        </div>
-                    </FormSection>
-                    <Link to={"/distancing"}><NextButton>Next</NextButton></Link>
-                    <Link to={"/food"}><PrevButton>Prev</PrevButton></Link>
-                </Container>
-            );
+    render(){
+        if (!this.global.visitedPPE) {
+            this.setGlobal({visitedPPE: true});
         }
+        return(
+            this.setGlobal({progress: 6*100/8}),
+            <Container>
+                <TitleBar>Is there any PPE gear you are requiring?</TitleBar>
+                <FormSection>
+                    <Selection className="radio">
+                    <label>
+                        <input type="radio" value="Masks" checked={this.state.selectedOption === 'Masks'} onChange={this.handleChange}/>
+                        Masks
+                    </label>
+                    </Selection>
+                    <Selection className="radio">
+                    <label>
+                        <input type="radio" value="Gloves" checked={this.state.selectedOption === 'Gloves'} onChange={this.handleChange}/>
+                        Gloves
+                    </label>
+                    </Selection>
+                    <Selection className="radio">
+                    <label>
+                        <input type="radio" value="Hand Sanitizer" checked={this.state.selectedOption === 'Hand Sanitizer'} onChange={this.handleChange}/>
+                        Hand Sanitizer
+                    </label>
+                    </Selection>
+                    <Selection className="radio">
+                    <label>
+                        <input type="radio" value="Alcohol Wipes" checked={this.state.selectedOption === 'Alcohol Wipes'} onChange={this.handleChange}/>
+                        Alcohol Wipes
+                    </label>
+                    </Selection>
+                    <Selection className="radio">
+                    <label>
+                        <input type="radio" value="Full PPE Suit" checked={this.state.selectedOption === 'Full PPE Suit'} onChange={this.handleChange}/>
+                        Full PPE Suit
+                    </label>
+                    </Selection>
+                    <Selection className="radio">
+                    <label>
+                        <input type="radio" value="None" checked={this.state.selectedOption === 'None'} onChange={this.handleChange}/>
+                        None
+                    </label>
+                    </Selection>
+                </FormSection>
+                <Link to={"/distancing"}><NextButton>Next</NextButton></Link>
+                <Link to={"/food"}><PrevButton>Prev</PrevButton></Link>
+            </Container>
+        );
+    }
 }
 
 export const ppeSidebar = () => {
@@ -218,4 +224,3 @@ export const ppeSidebar = () => {
         <div>ppepage</div>
     );
 };
-
