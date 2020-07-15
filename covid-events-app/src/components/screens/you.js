@@ -67,9 +67,12 @@ export class You extends React.Component {
     }
     render(){
 
-        // visitedYou = true;
+        if (!this.global.visitedYou) {
+            this.setGlobal({visitedYou: true})
+        }
 
         return(
+            // this.setGlobal({visitedYou: true}),
             this.setGlobal({progress: 0*100/8}),
             <Container>
                 <TitleBar>Stuff about you here!</TitleBar>

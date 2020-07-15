@@ -1,4 +1,4 @@
-import React from "react";
+import React, { setGlobal } from "reactn";
 import styled from 'styled-components';
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 
@@ -60,6 +60,11 @@ export class Ppe extends React.Component {
     }
 
     render(){
+
+        if (!this.global.visitedPPE) {
+            this.setGlobal({visitedPPE: true});
+        }
+
         return(
             <Container>
                 <TitleBar>Stuff about ppe here!</TitleBar>

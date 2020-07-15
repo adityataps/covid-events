@@ -68,6 +68,11 @@ export class Summary extends React.Component {
     }
 
     render(){
+
+        if (!this.global.visitedSummary) {
+            this.setGlobal({visitedSummary: true});
+        }
+
         return(
             this.setGlobal({progress: 100}),
             <Container>

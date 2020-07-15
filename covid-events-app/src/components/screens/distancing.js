@@ -89,6 +89,11 @@ export class Distancing extends React.Component {
     }
 
     render(){
+
+        if (!this.global.visitedDistancing) {
+            this.setGlobal({visitedDistancing: true});
+        }
+
         return(
             this.setGlobal({progress: 7*100/8}),
             <Container>
