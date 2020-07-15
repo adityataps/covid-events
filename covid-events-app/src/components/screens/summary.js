@@ -39,6 +39,18 @@ const PrevButton = styled.button`
     position: absolute;
 `;
 
+const NextButton = styled.button`
+    color: palevioletred;
+    font-size: 1em;
+    margin: 1em;
+    padding: 0.25em 1em;
+    border: 2px solid palevioletred;
+    border-radius: 3px;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+`;
+
 const Button = styled.button`
     color: palevioletred;
     font-size: 1em;
@@ -84,6 +96,7 @@ export class Summary extends React.Component {
                     <p></p>
                     <h2>The event risk factor is: {this.calculateTotalRisk()}</h2>
                 </ContentSection>
+        		<Link to={"/virtual"}><NextButton>Next</NextButton></Link>
         		<Link to={"/distancing"}><PrevButton>Prev</PrevButton></Link>
             </Container>
         );
