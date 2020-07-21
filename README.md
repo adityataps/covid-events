@@ -1,5 +1,5 @@
 # covid-events
-This is the project the Madison and ACe team for CS6795 - Summer 2020. It's a reac tapp to help you select safe and healthy social events during a covid setting.
+This is the project the Madison and Ace team for CS6795 - Summer 2020. It's a reac tapp to help you select safe and healthy social events during a covid setting.
 
 # How to run:
 
