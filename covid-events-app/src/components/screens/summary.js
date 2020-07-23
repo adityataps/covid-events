@@ -157,7 +157,7 @@ export class Summary extends React.Component {
                     <p>The event will have PPE: {this.global.ppe}</p>
                     <p>{this.calcluateSocialDistancingWords()} Risk Factor: {this.global.distancingRisk}</p>
                     <p></p>
-                    <h2>The event risk factor is: {this.calculateTotalRisk()}</h2>
+                    <h2>The event risk factor is: {this.calculateTotalRisk()}/15</h2>
                     <p>{this.claculateRiskFinalWords()}</p>
                 </ContentSection>
 			<SendInvite>Preview and Send Invite</SendInvite>

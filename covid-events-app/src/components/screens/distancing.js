@@ -101,7 +101,7 @@ export class Distancing extends React.Component {
         return(
             this.setGlobal({progress: 8*100/9}),
             <Container>
-                <TitleBar>CDC recommends that contact be keeped at a minimum distance of 6 feet. Will you be enforcing social distancing rules?</TitleBar>
+                <TitleBar>CDC recommends that contact be kept at a minimum distance of 6 feet. Will you be enforcing social distancing rules?</TitleBar>
                 <FormSection>
                     <Selection className="radio">
                     <label>

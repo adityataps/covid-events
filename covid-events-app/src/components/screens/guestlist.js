@@ -19,7 +19,7 @@ const TitleBar = styled.h1`
 const ContentSection = styled.p`
     text-align: left;
     color: white;
-    font-size: 10px;
+    font-size: 12px;
     position: relative;
     width: 98%;
     display:block;

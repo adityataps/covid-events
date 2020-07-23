@@ -62,9 +62,9 @@ export class Attendees extends React.Component {
     }
 
     checkAttendees = () => { 
-        if(!this.state.attendeeLimitOnce && this.global.attendees >= 10){
+        if(!this.state.attendeeLimitOnce && this.global.attendees >= 5){
             this.setState({attendeeLimitOnce: true});
-            notify("CDC guidelines recommend that gatherings be limited to 10 people or less. Consider reducing the number of attendees.")
+            notify("CDC guidelines recommend that gatherings be limited to 5 people or less. Consider reducing the number of attendees.")
         }
     }
 

@@ -3,6 +3,7 @@ import './screens.css'
 import React, { useGlobal } from "reactn";
 import styled from 'styled-components';
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+import {notify} from "../Notifications"
 
 const Container = styled.div`
     background: #43b98b;
@@ -57,18 +58,33 @@ export class Duration extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            page: duration
+            page: duration,
+            durationLimitOnce: false
         };
     }
-    increment = () => this.setGlobal(state => ({
-        duration: this.global.duration+1,
-        durationRisk: this.global.durationRisk+1
-    }))
 
-    decrement = () => this.setGlobal(state => ({
-        duration: this.global.duration-1,
-        durationRisk: this.global.durationRisk-1
-    }))
+    checkDuration = () => {
+        if(!this.state.durationLimitOnce && this.global.duration >= 3){
+            this.setState({durationLimitOnce: true});
+            notify("CDC guidelines recommend limiting the duration of gatherings. Consider reducing the number of hours.")
+        }
+    }
+
+    increment = () => {
+        this.setGlobal(state => ({
+            duration: this.global.duration+1,
+            durationRisk: this.global.durationRisk+1
+        }))
+        this.checkDuration()
+    }
+
+    decrement = () => {
+        this.setGlobal(state => ({
+            duration: this.global.duration-1,
+            durationRisk: this.global.durationRisk-1
+        }))
+        this.checkDuration()
+    }
 
     //setGlobal({progress: (4*100/8 >= global.progress) ? 4*100/8 : global.progress});
     render(){

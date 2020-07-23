@@ -82,6 +82,8 @@ export class Location extends React.Component {
             this.setGlobal({locationRisk: this.global.locationRisk - 8});
         } else if(this.global.location === 'park'){
             this.setGlobal({locationRisk: this.global.locationRisk - 1});
+        } else if(this.global.location === 'driveway'){
+            this.setGlobal({locationRisk: this.global.locationRisk - 2});
         } else if(this.global.location === 'backyard'){
             this.setGlobal({locationRisk: this.global.locationRisk - 3});
         } else if(this.global.location === 'living room'){
@@ -100,6 +102,8 @@ export class Location extends React.Component {
             this.setGlobal({locationRisk: this.global.locationRisk + 8});
         } else if(this.global.location === 'park'){
             this.setGlobal({locationRisk: this.global.locationRisk + 1});
+        } else if(this.global.location === 'driveway'){
+            this.setGlobal({locationRisk: this.global.locationRisk + 2});
         } else if(this.global.location === 'backyard'){
             this.setGlobal({locationRisk: this.global.locationRisk + 3});
         } else if(this.global.location === 'living room'){
@@ -143,6 +147,12 @@ export class Location extends React.Component {
                         At the local park
                     </Selection>
                     </div>
+                    <Selection className="radio">
+                    <label>
+                        <input type="radio" value="driveway" checked={this.state.selectedOption === 'driveway'} onChange={this.handleChange}/>
+                        In your driveway
+                    </label>
+                    </Selection>
                     <Selection className="radio">
                     <label>
                         <input type="radio" value="backyard" checked={this.state.selectedOption === 'backyard'} onChange={this.handleChange}/>
